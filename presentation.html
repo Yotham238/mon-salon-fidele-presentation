@@ -4,7 +4,6 @@
     <title>Présentation Salon - Solution Fidélité</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://unpkg.com/lucide@latest"></script>
-    <!-- Importing Playfair Display for the headings to match the image provided -->
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,800;1,400&amp;family=Inter:wght@300;400;500;600&amp;display=swap" rel="stylesheet">
     <script>
         tailwind.config = {
@@ -17,9 +16,9 @@
                     colors: {
                         cream: '#FDFBF7',
                         brand: {
-                            start: '#E86C72', /* Rose from image */
-                            mid: '#F3A158',   /* Orange from image */
-                            end: '#FCD385'    /* Gold from image */
+                            start: '#E86C72', 
+                            mid: '#F3A158',   
+                            end: '#FCD385'    
                         }
                     }
                 }
@@ -35,36 +34,30 @@
             opacity: 1;
             transform: scale(1) translateY(0);
         }
-        /* Custom text gradient class to match the user image */
         .text-gradient-brand {
             background: linear-gradient(90deg, #E86C72 0%, #F3A158 50%, #FCD385 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
         }
-        /* Softer selection color */
         ::selection {
             background: rgba(232, 108, 114, 0.2);
             color: #E86C72;
         }
     </style>
-<link id="all-fonts-link-font-geist" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700&amp;display=swap"><style id="all-fonts-style-font-geist">.font-geist { font-family: 'Geist', sans-serif !important; }</style><link id="all-fonts-link-font-roboto" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;600;700&amp;display=swap"><style id="all-fonts-style-font-roboto">.font-roboto { font-family: 'Roboto', sans-serif !important; }</style><link id="all-fonts-link-font-montserrat" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&amp;display=swap"><style id="all-fonts-style-font-montserrat">.font-montserrat { font-family: 'Montserrat', sans-serif !important; }</style><link id="all-fonts-link-font-poppins" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&amp;display=swap"><style id="all-fonts-style-font-poppins">.font-poppins { font-family: 'Poppins', sans-serif !important; }</style><link id="all-fonts-link-font-playfair" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;900&amp;display=swap"><style id="all-fonts-style-font-playfair">.font-playfair { font-family: 'Playfair Display', serif !important; }</style><link id="all-fonts-link-font-instrument-serif" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:wght@400;500;600;700&amp;display=swap"><style id="all-fonts-style-font-instrument-serif">.font-instrument-serif { font-family: 'Instrument Serif', serif !important; }</style><link id="all-fonts-link-font-merriweather" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400;700;900&amp;display=swap"><style id="all-fonts-style-font-merriweather">.font-merriweather { font-family: 'Merriweather', serif !important; }</style><link id="all-fonts-link-font-bricolage" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@300;400;500;600;700&amp;display=swap"><style id="all-fonts-style-font-bricolage">.font-bricolage { font-family: 'Bricolage Grotesque', sans-serif !important; }</style><link id="all-fonts-link-font-jakarta" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&amp;display=swap"><style id="all-fonts-style-font-jakarta">.font-jakarta { font-family: 'Plus Jakarta Sans', sans-serif !important; }</style><link id="all-fonts-link-font-manrope" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&amp;display=swap"><style id="all-fonts-style-font-manrope">.font-manrope { font-family: 'Manrope', sans-serif !important; }</style><link id="all-fonts-link-font-space-grotesk" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;display=swap"><style id="all-fonts-style-font-space-grotesk">.font-space-grotesk { font-family: 'Space Grotesk', sans-serif !important; }</style><link id="all-fonts-link-font-work-sans" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@300;400;500;600;700;800&amp;display=swap"><style id="all-fonts-style-font-work-sans">.font-work-sans { font-family: 'Work Sans', sans-serif !important; }</style><link id="all-fonts-link-font-pt-serif" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=PT+Serif:wght@400;700&amp;display=swap"><style id="all-fonts-style-font-pt-serif">.font-pt-serif { font-family: 'PT Serif', serif !important; }</style><link id="all-fonts-link-font-geist-mono" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist+Mono:wght@300;400;500;600;700&amp;display=swap"><style id="all-fonts-style-font-geist-mono">.font-geist-mono { font-family: 'Geist Mono', monospace !important; }</style><link id="all-fonts-link-font-space-mono" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&amp;display=swap"><style id="all-fonts-style-font-space-mono">.font-space-mono { font-family: 'Space Mono', monospace !important; }</style><link id="all-fonts-link-font-quicksand" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&amp;display=swap"><style id="all-fonts-style-font-quicksand">.font-quicksand { font-family: 'Quicksand', sans-serif !important; }</style><link id="all-fonts-link-font-nunito" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;500;600;700;800&amp;display=swap"><style id="all-fonts-style-font-nunito">.font-nunito { font-family: 'Nunito', sans-serif !important; }</style><link id="all-fonts-link-font-newsreader" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,400..800&amp;display=swap"><style id="all-fonts-style-font-newsreader">.font-newsreader { font-family: 'Newsreader', serif !important; }</style><link id="all-fonts-link-font-google-sans-flex" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Google+Sans+Flex:wght@400;500;600;700&amp;display=swap"><style id="all-fonts-style-font-google-sans-flex">.font-google-sans-flex { font-family: 'Google Sans Flex', sans-serif !important; }</style><link id="all-fonts-link-font-oswald" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;600;700&amp;display=swap"><style id="all-fonts-style-font-oswald">.font-oswald { font-family: 'Oswald', sans-serif !important; }</style><link id="all-fonts-link-font-dm-sans" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&amp;display=swap"><style id="all-fonts-style-font-dm-sans">.font-dm-sans { font-family: 'DM Sans', sans-serif !important; }</style><link id="all-fonts-link-font-cormorant" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&amp;display=swap"><style id="all-fonts-style-font-cormorant">.font-cormorant { font-family: 'Cormorant Garamond', serif !important; }</style></head>
+</head>
 <body class="antialiased overflow-hidden flex items-center justify-center text-slate-800 font-sans w-screen h-screen">
 
-    <!-- Main Presentation Container -->
     <div class="relative w-full h-full md:max-w-7xl md:h-[85vh] md:aspect-video bg-white/80 backdrop-blur-xl shadow-[0_20px_50px_-12px_rgba(0,0,0,0.1)] md:rounded-3xl overflow-hidden border border-white/50 ring-1 ring-slate-900/5 flex flex-col">
         
-        <!-- Decorative background blurs inside the container -->
         <div class="absolute top-0 right-0 -translate-y-1/2 translate-x-1/2 w-96 h-96 bg-brand-start/10 blur-[100px] rounded-full pointer-events-none"></div>
         <div class="absolute bottom-0 left-0 translate-y-1/2 -translate-x-1/2 w-96 h-96 bg-brand-end/20 blur-[100px] rounded-full pointer-events-none"></div>
 
-        <!-- Header / Logo Area -->
         <div class="absolute top-0 left-0 w-full px-8 py-6 z-20 flex justify-between items-center">
             <div class="flex items-center gap-3">
                 <div class="w-10 h-10 bg-gradient-to-br from-brand-start to-brand-mid rounded-xl flex items-center justify-center text-white shadow-lg shadow-brand-start/20">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="sparkles" class="lucide lucide-sparkles w-5 h-5"><path d="M11.017 2.814a1 1 0 0 1 1.966 0l1.051 5.558a2 2 0 0 0 1.594 1.594l5.558 1.051a1 1 0 0 1 0 1.966l-5.558 1.051a2 2 0 0 0-1.594 1.594l-1.051 5.558a1 1 0 0 1-1.966 0l-1.051-5.558a2 2 0 0 0-1.594-1.594l-5.558-1.051a1 1 0 0 1 0-1.966l5.558-1.051a2 2 0 0 0 1.594-1.594z"></path><path d="M20 2v4"></path><path d="M22 4h-4"></path><circle cx="4" cy="20" r="2"></circle></svg>
+                    <i data-lucide="sparkles" class="w-5 h-5 text-white"></i>
                 </div>
-                <!-- Updated Typography to match image -->
                 <span class="font-serif font-bold text-2xl tracking-tight text-gradient-brand pb-1">Mon Salon Fidèle</span>
             </div>
             <div class="hidden md:flex items-center gap-2 text-[10px] font-bold text-slate-400 uppercase tracking-widest px-4 py-1.5 bg-white/50 rounded-full border border-slate-100 backdrop-blur-sm">
@@ -73,10 +66,8 @@
             </div>
         </div>
 
-        <!-- SLIDES WRAPPER -->
         <div id="deck" class="flex-1 relative w-full h-full">
 
-            <!-- SLIDE 1: INTRO / HOOK -->
             <div class="slide absolute inset-0 flex flex-col items-center justify-center text-center p-12 transition-all duration-700 ease-out slide-active" data-index="0">
                 <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-orange-50 text-brand-mid text-xs font-semibold mb-8 border border-orange-100">
                     <span class="relative flex h-2 w-2">
@@ -86,160 +77,114 @@
                     L'élégance technologique
                 </div>
                 
-                <!-- Main Title with Gradient and Serif Font -->
                 <h1 class="font-serif text-6xl md:text-8xl font-medium tracking-tight text-slate-900 mb-8 max-w-5xl leading-[1.1]">
-                    Sublimez votre salon.<br>
-                    <span class="text-gradient-brand italic pr-2">Fidélisez vos clientes.</span>
+                    Boostez la rentabilité<br>
+                    <span class="text-gradient-brand italic pr-2">de votre salon.</span>
                 </h1>
                 
                 <p class="text-lg md:text-xl text-slate-500 max-w-2xl leading-relaxed mb-12 font-light">
                     L'art de transformer chaque visite en une relation durable. <br>Sans application. Sans effort. Tout simplement beau.
                 </p>
                 
-                <button onclick="nextSlide();window.location.href='https://www.monsalonfidele.com/dashboard?salon_id=salon_rec8HuRXgdfSzmK54'" class="group flex gap-3 hover:bg-black transition-all hover:scale-105 shadow-slate-900/10 cursor-pointer font-medium text-white bg-slate-900 rounded-full pt-4 pr-6 pb-4 pl-8 shadow-xl gap-x-3 gap-y-3 items-center" role="button">
+                <button onclick="nextSlide()" class="group flex gap-3 hover:bg-black transition-all hover:scale-105 shadow-slate-900/10 cursor-pointer font-medium text-white bg-slate-900 rounded-full pt-4 pr-6 pb-4 pl-8 shadow-xl items-center">
                     Découvrir l'expérience
                     <span class="bg-white/10 rounded-full p-1 group-hover:bg-white/20 transition-colors">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="arrow-right" class="lucide lucide-arrow-right w-4 h-4"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg>
+                        <i data-lucide="arrow-right" class="w-4 h-4"></i>
                     </span>
                 </button>
             </div>
 
-            <!-- SLIDE 2: THE PROBLEM (PAIN) -->
             <div class="slide absolute inset-0 flex flex-col items-center justify-center p-12 transition-all duration-500 ease-out opacity-0 pointer-events-none slide-enter" data-index="1">
                 <h2 class="font-serif text-4xl md:text-5xl font-medium tracking-tight mb-16 text-center text-slate-800">
                     L'élégance ne supporte pas <span class="text-brand-start italic">l'oubli.</span>
                 </h2>
                 
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-8 w-full max-w-6xl">
-                    <!-- Card 1 -->
                     <div class="bg-white p-10 rounded-3xl border border-slate-100 shadow-sm flex flex-col items-start text-left group hover:shadow-xl hover:-translate-y-1 transition-all duration-300 relative overflow-hidden">
-                        <div class="absolute top-0 right-0 w-24 h-24 bg-brand-start/5 rounded-bl-full -mr-4 -mt-4 transition-transform group-hover:scale-150"></div>
                         <div class="w-12 h-12 bg-rose-50 rounded-2xl flex items-center justify-center text-brand-start mb-6">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="heart-crack" class="lucide lucide-heart-crack w-6 h-6 stroke-[1.5]"><path d="M12.409 5.824c-.702.792-1.15 1.496-1.415 2.166l2.153 2.156a.5.5 0 0 1 0 .707l-2.293 2.293a.5.5 0 0 0 0 .707L12 15"></path><path d="M13.508 20.313a2 2 0 0 1-3 .019L5 15c-1.5-1.5-3-3.2-3-5.5a5.5 5.5 0 0 1 9.591-3.677.6.6 0 0 0 .818.001A5.5 5.5 0 0 1 22 9.5c0 2.29-1.5 4-3 5.5z"></path></svg>
+                            <i data-lucide="heart-crack" class="w-6 h-6"></i>
                         </div>
                         <div class="font-serif text-5xl font-medium text-slate-800 mb-2">39%</div>
                         <p class="font-semibold text-slate-900 mb-2">De rendez-vous oubliés</p>
-                        <p class="text-sm text-slate-500 leading-relaxed">Une relation brisée par un simple oubli. Vos talents méritent mieux que des chaises vides.</p>
+                        <p class="text-xs text-slate-400 mb-4 italic">Source : Étude Planity</p>
+                        <p class="text-sm text-slate-500 leading-relaxed">Une relation brisée par un simple oubli. Vos talents méritent mieux.</p>
                     </div>
 
-                    <!-- Card 2 -->
                     <div class="bg-white p-10 rounded-3xl border border-slate-100 shadow-sm flex flex-col items-start text-left group hover:shadow-xl hover:-translate-y-1 transition-all duration-300 relative overflow-hidden">
-                        <div class="absolute top-0 right-0 w-24 h-24 bg-brand-mid/5 rounded-bl-full -mr-4 -mt-4 transition-transform group-hover:scale-150"></div>
                         <div class="w-12 h-12 bg-orange-50 rounded-2xl flex items-center justify-center text-brand-mid mb-6">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="coins" class="lucide lucide-coins w-6 h-6 stroke-[1.5]"><circle cx="8" cy="8" r="6"></circle><path d="M18.09 10.37A6 6 0 1 1 10.34 18"></path><path d="M7 6h1v4"></path><path d="m16.71 13.88.7.71-2.82 2.82"></path></svg>
+                            <i data-lucide="coins" class="w-6 h-6"></i>
                         </div>
                         <div class="font-serif text-5xl font-medium text-slate-800 mb-2">80€</div>
-                        <p class="font-semibold text-slate-900 mb-2">Perte par absence</p>
-                        <p class="text-sm text-slate-500 leading-relaxed">Chaque créneau perdu est une opportunité de beauté manquée et un revenu qui s'évapore.</p>
+                        <p class="font-semibold text-slate-900 mb-2">Perte moyenne par absence</p>
+                        <p class="text-xs text-slate-400 mb-4 italic">Source : Baromètre Treatwell</p>
+                        <p class="text-sm text-slate-500 leading-relaxed">Chaque créneau perdu est une opportunité de beauté manquée.</p>
                     </div>
 
-                    <!-- Card 3 -->
                     <div class="bg-gradient-to-br from-slate-900 to-slate-800 text-white p-10 rounded-3xl border border-slate-800 shadow-xl flex flex-col items-start text-left group hover:-translate-y-1 transition-all duration-300">
                         <div class="w-12 h-12 bg-white/10 rounded-2xl flex items-center justify-center text-white mb-6 backdrop-blur-sm">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="trending-down" class="lucide lucide-trending-down w-6 h-6 stroke-[1.5]"><path d="M16 17h6v-6"></path><path d="m22 17-8.5-8.5-5 5L2 7"></path></svg>
+                            <i data-lucide="trending-down" class="w-6 h-6"></i>
                         </div>
                         <div class="font-serif text-5xl font-medium mb-2 text-gradient-brand">12k€</div>
                         <p class="font-semibold mb-2 text-white/90">Manque à gagner annuel</p>
-                        <p class="text-sm text-white/60 leading-relaxed">L'impact cumulé des oublis sur votre chiffre d'affaires annuel est vertigineux.</p>
+                        <p class="text-xs text-white/40 mb-4 italic">Source : Estimation secteur Beauté</p>
+                        <p class="text-sm text-white/60 leading-relaxed">L'impact cumulé des oublis sur votre CA annuel est vertigineux.</p>
                     </div>
                 </div>
             </div>
 
-            <!-- SLIDE 3: BEFORE / AFTER -->
             <div class="slide absolute inset-0 flex flex-col md:flex-row transition-all duration-500 ease-out opacity-0 pointer-events-none slide-enter" data-index="2">
-                
-                <!-- Left: Before -->
                 <div class="w-full md:w-1/2 h-full bg-[#FAF9F6] flex flex-col justify-center items-center p-16 relative border-r border-slate-100">
                     <div class="text-xs font-bold uppercase tracking-[0.2em] text-slate-400 mb-8">Avant</div>
                     <h3 class="font-serif text-4xl text-slate-300 mb-10 line-through decoration-brand-start/50 decoration-2">L'agenda Instable</h3>
-                    
-                    <div class="space-y-8 w-full max-w-sm opacity-60 grayscale hover:grayscale-0 transition-all duration-500">
-                        <div class="flex items-center gap-6">
-                            <div class="w-12 h-12 rounded-full bg-slate-100 flex items-center justify-center shrink-0">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="calendar-x" class="lucide lucide-calendar-x w-5 h-5 text-slate-400"><path d="M8 2v4"></path><path d="M16 2v4"></path><rect width="18" height="18" x="3" y="4" rx="2"></rect><path d="M3 10h18"></path><path d="m14 14-4 4"></path><path d="m10 14 4 4"></path></svg>
-                            </div>
-                            <span class="text-lg text-slate-500 font-medium">Clients irréguliers</span>
-                        </div>
-                        <div class="flex items-center gap-6">
-                            <div class="w-12 h-12 rounded-full bg-slate-100 flex items-center justify-center shrink-0">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="cloud-rain" class="lucide lucide-cloud-rain w-5 h-5 text-slate-400"><path d="M4 14.899A7 7 0 1 1 15.71 8h1.79a4.5 4.5 0 0 1 2.5 8.242"></path><path d="M16 14v6"></path><path d="M8 14v6"></path><path d="M12 16v6"></path></svg>
-                            </div>
-                            <span class="text-lg text-slate-500 font-medium">Revenus imprévisibles</span>
-                        </div>
+                    <div class="space-y-8 w-full max-w-sm opacity-60">
+                        <div class="flex items-center gap-6"><i data-lucide="calendar-x" class="text-slate-400"></i><span class="text-lg text-slate-500 font-medium">Clients irréguliers</span></div>
+                        <div class="flex items-center gap-6"><i data-lucide="cloud-rain" class="text-slate-400"></i><span class="text-lg text-slate-500 font-medium">Revenus imprévisibles</span></div>
                     </div>
                 </div>
-
-                <!-- Right: After -->
                 <div class="w-full md:w-1/2 h-full bg-white flex flex-col justify-center items-center p-16 relative overflow-hidden">
                     <div class="absolute inset-0 bg-gradient-to-br from-brand-start/5 via-brand-mid/5 to-transparent pointer-events-none"></div>
-                    
                     <div class="relative z-10 flex flex-col items-center">
                          <div class="text-xs font-bold uppercase tracking-[0.2em] text-brand-mid mb-8">Avec Mon Salon Fidèle</div>
-                        <h3 class="font-serif text-5xl font-medium text-transparent bg-clip-text bg-gradient-to-r from-slate-900 to-slate-700 mb-12">La Sérénité</h3>
-                        
+                        <h3 class="font-serif text-5xl font-medium text-slate-900 mb-12">La Sérénité</h3>
                         <div class="space-y-6 w-full max-w-sm">
-                            <div class="flex items-center gap-5 p-5 bg-white shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-slate-100 rounded-2xl transform hover:scale-105 transition-all duration-300">
-                                <div class="w-12 h-12 rounded-full bg-gradient-to-br from-brand-start to-brand-mid flex items-center justify-center text-white shadow-lg shadow-brand-start/20 shrink-0">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="check" class="lucide lucide-check w-6 h-6"><path d="M20 6 9 17l-5-5"></path></svg>
-                                </div>
-                                <div>
-                                    <div class="font-serif text-xl text-slate-800">Agendas Complets</div>
-                                    <div class="text-sm text-slate-500 mt-0.5">Visibilité sur 3 mois</div>
-                                </div>
+                            <div class="flex items-center gap-5 p-5 bg-white shadow-xl border border-slate-100 rounded-2xl transform hover:scale-105 transition-all">
+                                <div class="w-12 h-12 rounded-full bg-gradient-to-br from-brand-start to-brand-mid flex items-center justify-center text-white"><i data-lucide="check"></i></div>
+                                <div><div class="font-serif text-xl text-slate-800">Agendas Complets</div><div class="text-sm text-slate-500 mt-0.5">Visibilité sur 3 mois</div></div>
                             </div>
-                            
-                            <div class="flex items-center gap-5 p-5 bg-white shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-slate-100 rounded-2xl transform hover:scale-105 transition-all duration-300 delay-75">
-                                <div class="w-12 h-12 rounded-full bg-gradient-to-br from-brand-mid to-brand-end flex items-center justify-center text-white shadow-lg shadow-brand-mid/20 shrink-0">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="sparkles" class="lucide lucide-sparkles w-6 h-6"><path d="M11.017 2.814a1 1 0 0 1 1.966 0l1.051 5.558a2 2 0 0 0 1.594 1.594l5.558 1.051a1 1 0 0 1 0 1.966l-5.558 1.051a2 2 0 0 0-1.594 1.594l-1.051 5.558a1 1 0 0 1-1.966 0l-1.051-5.558a2 2 0 0 0-1.594-1.594l-5.558-1.051a1 1 0 0 1 0-1.966l5.558-1.051a2 2 0 0 0 1.594-1.594z"></path><path d="M20 2v4"></path><path d="M22 4h-4"></path><circle cx="4" cy="20" r="2"></circle></svg>
-                                </div>
-                                <div>
-                                    <div class="font-serif text-xl text-slate-800">Clients Fidèles</div>
-                                    <div class="text-sm text-slate-500 mt-0.5">Reviennent 2x plus souvent</div>
-                                </div>
+                            <div class="flex items-center gap-5 p-5 bg-white shadow-xl border border-slate-100 rounded-2xl transform hover:scale-105 transition-all">
+                                <div class="w-12 h-12 rounded-full bg-gradient-to-br from-brand-mid to-brand-end flex items-center justify-center text-white"><i data-lucide="sparkles"></i></div>
+                                <div><div class="font-serif text-xl text-slate-800">Clients Fidèles</div><div class="text-sm text-slate-500 mt-0.5">Reviennent 2x plus souvent</div></div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <!-- SLIDE 4: HOW IT WORKS -->
             <div class="slide absolute inset-0 flex flex-col items-center justify-center p-12 transition-all duration-500 ease-out opacity-0 pointer-events-none slide-enter" data-index="3">
                 <h2 class="font-serif text-4xl md:text-5xl font-medium tracking-tight mb-6 text-center text-slate-800">
                     La simplicité est le <span class="text-gradient-brand italic">comble du chic.</span>
                 </h2>
                 <p class="text-slate-500 text-lg mb-20 text-center font-light">Une expérience fluide pour vous et vos clientes.</p>
-
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-12 w-full max-w-6xl relative">
-                    <!-- Elegant Connector Line -->
-                    <div class="hidden md:block absolute top-16 left-[16%] right-[16%] h-[1px] bg-gradient-to-r from-transparent via-slate-200 to-transparent -z-10 border-t border-dashed border-slate-300"></div>
-
-                    <!-- Step 1 -->
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-12 w-full max-w-6xl">
                     <div class="flex flex-col items-center text-center group">
-                        <div class="w-32 h-32 bg-white rounded-full flex items-center justify-center mb-8 shadow-2xl shadow-slate-100 border border-slate-50 relative group-hover:-translate-y-2 transition-transform duration-500">
-                            <div class="absolute inset-2 rounded-full border border-dashed border-slate-200"></div>
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="scan-line" class="lucide lucide-scan-line w-12 h-12 text-brand-start"><path d="M3 7V5a2 2 0 0 1 2-2h2"></path><path d="M17 3h2a2 2 0 0 1 2 2v2"></path><path d="M21 17v2a2 2 0 0 1-2 2h-2"></path><path d="M7 21H5a2 2 0 0 1-2-2v-2"></path><path d="M7 12h10"></path></svg>
+                        <div class="w-32 h-32 bg-white rounded-full flex items-center justify-center mb-8 shadow-2xl border border-slate-50 relative">
+                            <i data-lucide="scan-line" class="w-12 h-12 text-brand-start"></i>
                             <div class="absolute -bottom-4 bg-slate-900 text-white text-xs font-bold px-3 py-1 rounded-full">1</div>
                         </div>
                         <h3 class="font-serif text-2xl text-slate-800 mb-3">Le Scan</h3>
-                        <p class="text-slate-500 text-sm leading-relaxed px-8">Un QR Code élégant au comptoir. Un geste simple, aucune application à télécharger.</p>
+                        <p class="text-slate-500 text-sm leading-relaxed px-8">Un QR Code élégant au comptoir. Aucune application à télécharger.</p>
                     </div>
-
-                    <!-- Step 2 -->
                     <div class="flex flex-col items-center text-center group">
-                        <div class="w-32 h-32 bg-white rounded-full flex items-center justify-center mb-8 shadow-2xl shadow-slate-100 border border-slate-50 relative group-hover:-translate-y-2 transition-transform duration-500 delay-100">
-                            <div class="absolute inset-2 rounded-full border border-dashed border-slate-200"></div>
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="stars" class="lucide lucide-stars w-12 h-12 text-brand-mid"><path d="M11.017 2.814a1 1 0 0 1 1.966 0l1.051 5.558a2 2 0 0 0 1.594 1.594l5.558 1.051a1 1 0 0 1 0 1.966l-5.558 1.051a2 2 0 0 0-1.594 1.594l-1.051 5.558a1 1 0 0 1-1.966 0l-1.051-5.558a2 2 0 0 0-1.594-1.594l-5.558-1.051a1 1 0 0 1 0-1.966l5.558-1.051a2 2 0 0 0 1.594-1.594z"></path><path d="M20 2v4"></path><path d="M22 4h-4"></path><circle cx="4" cy="20" r="2"></circle></svg>
+                        <div class="w-32 h-32 bg-white rounded-full flex items-center justify-center mb-8 shadow-2xl border border-slate-50 relative">
+                            <i data-lucide="stars" class="w-12 h-12 text-brand-mid"></i>
                             <div class="absolute -bottom-4 bg-slate-900 text-white text-xs font-bold px-3 py-1 rounded-full">2</div>
                         </div>
                         <h3 class="font-serif text-2xl text-slate-800 mb-3">La Récompense</h3>
-                        <p class="text-slate-500 text-sm leading-relaxed px-8">Vos clientes cumulent des points automatiquement. Le plaisir du jeu, la beauté en plus.</p>
+                        <p class="text-slate-500 text-sm leading-relaxed px-8">Vos clientes cumulent des points automatiquement. Simple et ludique.</p>
                     </div>
-
-                    <!-- Step 3 -->
                     <div class="flex flex-col items-center text-center group">
-                        <div class="w-32 h-32 bg-white rounded-full flex items-center justify-center mb-8 shadow-2xl shadow-slate-100 border border-slate-50 relative group-hover:-translate-y-2 transition-transform duration-500 delay-200">
-                            <div class="absolute inset-2 rounded-full border border-dashed border-slate-200"></div>
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="smartphone-nfc" class="lucide lucide-smartphone-nfc w-12 h-12 text-brand-end"><rect width="7" height="12" x="2" y="6" rx="1"></rect><path d="M13 8.32a7.43 7.43 0 0 1 0 7.36"></path><path d="M16.46 6.21a11.76 11.76 0 0 1 0 11.58"></path><path d="M19.91 4.1a15.91 15.91 0 0 1 .01 15.8"></path></svg>
+                        <div class="w-32 h-32 bg-white rounded-full flex items-center justify-center mb-8 shadow-2xl border border-slate-50 relative">
+                            <i data-lucide="smartphone-nfc" class="w-12 h-12 text-brand-end"></i>
                             <div class="absolute -bottom-4 bg-slate-900 text-white text-xs font-bold px-3 py-1 rounded-full">3</div>
                         </div>
                         <h3 class="font-serif text-2xl text-slate-800 mb-3">Le Lien</h3>
@@ -248,137 +193,80 @@
                 </div>
             </div>
 
-            <!-- SLIDE 5: ROI -->
             <div class="slide absolute inset-0 flex flex-col items-center justify-center p-12 transition-all duration-500 ease-out opacity-0 pointer-events-none slide-enter" data-index="4">
                 <div class="w-full max-w-6xl flex flex-col md:flex-row gap-16 items-center">
-                    
                     <div class="flex-1 space-y-10">
                         <h2 class="font-serif text-5xl md:text-6xl font-medium tracking-tight text-slate-900 leading-[1.1]">
-                            Un investissement 
-                            <span class="text-gradient-brand italic">imperceptible.</span>
+                            Un investissement <span class="text-gradient-brand italic">imperceptible.</span>
                         </h2>
-                        <p class="text-xl text-slate-500 font-light">Moins cher qu'une coupe. Plus rentable que votre meilleur mois.</p>
-                        
                         <div class="space-y-6">
-                            <!-- Cost Bar -->
                             <div class="relative pt-8">
-                                <div class="flex justify-between items-end mb-2 text-sm font-medium">
-                                    <span class="text-slate-400">Coût mensuel (49€)</span>
-                                </div>
-                                <div class="w-full bg-slate-100 h-3 rounded-full overflow-hidden">
-                                    <div class="bg-slate-300 h-full w-[10%] rounded-full"></div>
-                                </div>
+                                <div class="flex justify-between mb-2 text-sm font-medium"><span class="text-slate-400">Coût mensuel (49€)</span></div>
+                                <div class="w-full bg-slate-100 h-3 rounded-full overflow-hidden"><div class="bg-slate-300 h-full w-[10%] rounded-full"></div></div>
                             </div>
-
-                            <!-- Gain Bar -->
                             <div>
                                 <div class="flex justify-between items-end mb-2">
                                     <span class="text-brand-start font-bold font-serif text-xl">Revenus Sécurisés</span>
                                     <span class="text-3xl font-serif text-slate-800">+1200€</span>
                                 </div>
                                 <div class="w-full bg-rose-50 h-3 rounded-full overflow-hidden shadow-inner">
-                                    <div class="bg-gradient-to-r from-brand-start to-brand-mid h-full w-[85%] rounded-full shadow-[0_0_20px_rgba(232,108,114,0.4)]"></div>
+                                    <div class="bg-gradient-to-r from-brand-start to-brand-mid h-full w-[85%] rounded-full shadow-lg"></div>
                                 </div>
                             </div>
                         </div>
                     </div>
-
                     <div class="flex-1">
-                        <div class="bg-white p-12 rounded-[2.5rem] shadow-[0_30px_60px_-15px_rgba(0,0,0,0.08)] border border-slate-100 relative overflow-hidden text-center">
+                        <div class="bg-white p-12 rounded-[2.5rem] shadow-2xl border border-slate-100 relative overflow-hidden text-center">
                             <div class="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-brand-start via-brand-mid to-brand-end"></div>
-                            
                             <div class="inline-flex items-center justify-center w-24 h-24 rounded-full bg-cream mb-8 shadow-inner">
                                 <span class="font-serif text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-br from-brand-start to-brand-mid">x20</span>
                             </div>
-                            
                             <h3 class="font-serif text-3xl text-slate-800 mb-4">Retour sur Investissement</h3>
-                            <p class="text-slate-500 mb-10 leading-relaxed">Pour chaque euro investi dans Mon Salon Fidèle, vous récupérez 20€ de chiffre d'affaires.</p>
-                            
+                            <p class="text-slate-500 mb-10 leading-relaxed">Pour chaque euro investi, vous récupérez 20€ de CA.</p>
                             <div class="flex border-t border-slate-100 pt-8">
-                                <div class="flex-1 border-r border-slate-100 pr-4">
-                                    <div class="text-[10px] uppercase tracking-widest text-slate-400 font-bold mb-1">Essai</div>
-                                    <div class="font-serif text-xl text-slate-800">1 Mois Offert</div>
-                                </div>
-                                <div class="flex-1 pl-4">
-                                    <div class="text-[10px] uppercase tracking-widest text-slate-400 font-bold mb-1">Liberté</div>
-                                    <div class="font-serif text-xl text-slate-800">Sans Engagement</div>
-                                </div>
+                                <div class="flex-1 border-r border-slate-100 pr-4"><div class="text-[10px] uppercase text-slate-400 font-bold mb-1">Essai</div><div class="font-serif text-xl text-slate-800">1 Mois Offert</div></div>
+                                <div class="flex-1 pl-4"><div class="text-[10px] uppercase text-slate-400 font-bold mb-1">Liberté</div><div class="font-serif text-xl text-slate-800">Sans Engagement</div></div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <!-- SLIDE 6: CTA -->
             <div class="slide absolute inset-0 flex flex-col items-center justify-center p-12 bg-slate-900 text-white transition-all duration-500 ease-out opacity-0 pointer-events-none overflow-hidden slide-enter" data-index="5">
-                <!-- Ambient Background -->
                 <div class="absolute inset-0">
                     <div class="absolute -top-[20%] left-[20%] w-[60%] h-[60%] bg-brand-start/20 blur-[120px] rounded-full animate-pulse"></div>
                     <div class="absolute bottom-[0%] right-[10%] w-[50%] h-[50%] bg-brand-mid/20 blur-[120px] rounded-full"></div>
                 </div>
-
                 <div class="relative z-10 text-center max-w-4xl">
-                    <div class="w-20 h-20 bg-white/5 backdrop-blur-md rounded-2xl flex items-center justify-center mx-auto mb-10 border border-white/10 shadow-2xl">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="gem" class="lucide lucide-gem w-8 h-8 text-brand-end"><path d="M10.5 3 8 9l4 13 4-13-2.5-6"></path><path d="M17 3a2 2 0 0 1 1.6.8l3 4a2 2 0 0 1 .013 2.382l-7.99 10.986a2 2 0 0 1-3.247 0l-7.99-10.986A2 2 0 0 1 2.4 7.8l2.998-3.997A2 2 0 0 1 7 3z"></path><path d="M2 9h20"></path></svg>
+                    <div class="w-20 h-20 bg-white/5 backdrop-blur-md rounded-2xl flex items-center justify-center mx-auto mb-10 border border-white/10">
+                        <i data-lucide="gem" class="w-8 h-8 text-brand-end"></i>
                     </div>
-                    
-                    <h2 class="font-serif text-5xl md:text-7xl font-medium tracking-tight mb-8">
-                        L'excellence n'attend pas.
-                    </h2>
-                    
+                    <h2 class="font-serif text-5xl md:text-7xl font-medium tracking-tight mb-8">L'excellence n'attend pas.</h2>
                     <p class="text-xl text-slate-400 mb-12 font-light">Rejoignez les 500 salons qui ont déjà transformé leur relation client.</p>
-
-                    <div class="flex flex-col sm:flex-row gap-8 items-center justify-center mb-16">
-                        <div class="flex items-center gap-3 text-sm font-medium tracking-wide text-white/80">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="check-circle-2" class="lucide lucide-check-circle-2 w-5 h-5 text-brand-mid"><circle cx="12" cy="12" r="10"></circle><path d="m9 12 2 2 4-4"></path></svg>
-                            <span>Installation instantanée</span>
-                        </div>
-                        <div class="flex items-center gap-3 text-sm font-medium tracking-wide text-white/80">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="check-circle-2" class="lucide lucide-check-circle-2 w-5 h-5 text-brand-mid"><circle cx="12" cy="12" r="10"></circle><path d="m9 12 2 2 4-4"></path></svg>
-                            <span>1er mois gratuit</span>
-                        </div>
-                        <div class="flex items-center gap-3 text-sm font-medium tracking-wide text-white/80">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="check-circle-2" class="lucide lucide-check-circle-2 w-5 h-5 text-brand-mid"><circle cx="12" cy="12" r="10"></circle><path d="m9 12 2 2 4-4"></path></svg>
-                            <span>Support VIP 7j/7</span>
-                        </div>
-                    </div>
-
-                    <a href="#" class="group relative inline-flex items-center justify-center px-12 py-5 text-lg font-serif font-bold text-slate-900 bg-gradient-to-r from-white to-cream rounded-full hover:shadow-[0_0_40px_-5px_rgba(255,255,255,0.3)] transition-all hover:scale-105 overflow-hidden">
-                        <span class="absolute inset-0 bg-gradient-to-r from-brand-start/20 to-brand-mid/20 opacity-0 group-hover:opacity-100 transition-opacity"></span>
-                        <span class="relative flex items-center gap-3">
-                            Scanner pour démarrer
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="arrow-right" class="lucide lucide-arrow-right w-5 h-5"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg>
-                        </span>
+                    <a href="https://www.monsalonfidele.com" class="group relative inline-flex items-center justify-center px-12 py-5 text-lg font-serif font-bold text-slate-900 bg-white rounded-full hover:scale-105 transition-all">
+                        <span class="relative flex items-center gap-3">Commencer l'essai gratuit <i data-lucide="arrow-right"></i></span>
                     </a>
                 </div>
             </div>
 
         </div>
 
-        <!-- FOOTER CONTROLS -->
-        <div class="absolute bottom-0 left-0 w-full h-1 bg-slate-100/50 backdrop-blur-sm">
-            <div id="progressBar" class="h-full bg-gradient-to-r from-brand-start to-brand-mid transition-all duration-300 w-[16%] shadow-[0_0_10px_rgba(232,108,114,0.5)]" style="width: 16.6667%;"></div>
+        <div class="absolute bottom-0 left-0 w-full h-1 bg-slate-100/50">
+            <div id="progressBar" class="h-full bg-gradient-to-r from-brand-start to-brand-mid transition-all duration-300" style="width: 16.66%;"></div>
         </div>
         
         <div class="absolute bottom-8 right-10 flex gap-3 z-30">
-            <button onclick="prevSlide()" class="group p-3 rounded-full bg-white/40 hover:bg-white text-slate-600 hover:text-slate-900 border border-white/60 transition-all disabled:opacity-30 backdrop-blur-md shadow-sm" id="btnPrev" disabled="">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="chevron-left" class="lucide lucide-chevron-left w-5 h-5 group-hover:-translate-x-0.5 transition-transform"><path d="m15 18-6-6 6-6"></path></svg>
-            </button>
-            <button onclick="nextSlide()" class="group p-3 rounded-full bg-white/40 hover:bg-white text-slate-600 hover:text-slate-900 border border-white/60 transition-all disabled:opacity-30 backdrop-blur-md shadow-sm" id="btnNext">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="chevron-right" class="lucide lucide-chevron-right w-5 h-5 group-hover:translate-x-0.5 transition-transform"><path d="m9 18 6-6-6-6"></path></svg>
-            </button>
+            <button onclick="prevSlide()" class="p-3 rounded-full bg-white/40 hover:bg-white border border-white/60 transition-all" id="btnPrev"><i data-lucide="chevron-left"></i></button>
+            <button onclick="nextSlide()" class="p-3 rounded-full bg-white/40 hover:bg-white border border-white/60 transition-all" id="btnNext"><i data-lucide="chevron-right"></i></button>
         </div>
         
-        <div class="absolute bottom-10 left-10 text-xs font-medium tracking-widest text-slate-400 z-30 font-sans">
+        <div class="absolute bottom-10 left-10 text-xs font-medium tracking-widest text-slate-400 z-30">
             <span id="currentSlideDisplay" class="text-slate-800">1</span> / <span id="totalSlidesDisplay">6</span>
         </div>
-
     </div>
 
     <script>
-        // Init Icons
         lucide.createIcons();
-
         let currentIndex = 0;
         const slides = document.querySelectorAll('.slide');
         const progressBar = document.getElementById('progressBar');
@@ -390,52 +278,28 @@
         totalDisplay.textContent = slides.length;
 
         function updateSlide(index) {
-            // Bounds check
             if (index < 0) index = 0;
             if (index >= slides.length) index = slides.length - 1;
-            
             currentIndex = index;
-
-            // Visual update
             slides.forEach((slide, i) => {
-                if (i === currentIndex) {
-                    slide.classList.remove('opacity-0', 'pointer-events-none', 'slide-enter');
-                    slide.classList.add('slide-active');
-                    // Retrigger Lucide animations
-                    lucide.createIcons();
-                } else {
-                    slide.classList.add('opacity-0', 'pointer-events-none', 'slide-enter');
-                    slide.classList.remove('slide-active');
-                }
+                slide.classList.toggle('slide-active', i === currentIndex);
+                slide.classList.toggle('opacity-0', i !== currentIndex);
+                slide.classList.toggle('pointer-events-none', i !== currentIndex);
             });
-
-            // Footer update
-            const progress = ((currentIndex + 1) / slides.length) * 100;
-            progressBar.style.width = `${progress}%`;
+            progressBar.style.width = `${((currentIndex + 1) / slides.length) * 100}%`;
             currentDisplay.textContent = currentIndex + 1;
-
-            // Button states
             btnPrev.disabled = currentIndex === 0;
             btnNext.disabled = currentIndex === slides.length - 1;
+            lucide.createIcons();
         }
 
-        function nextSlide() {
-            updateSlide(currentIndex + 1);
-        }
-
-        function prevSlide() {
-            updateSlide(currentIndex - 1);
-        }
-
-        // Keyboard navigation
+        function nextSlide() { updateSlide(currentIndex + 1); }
+        function prevSlide() { updateSlide(currentIndex - 1); }
         document.addEventListener('keydown', (e) => {
-            if (e.key === 'ArrowRight' || e.key === 'Space') nextSlide();
+            if (e.key === 'ArrowRight' || e.key === ' ') nextSlide();
             if (e.key === 'ArrowLeft') prevSlide();
         });
-
-        // Initial setup
         updateSlide(0);
     </script>
-
 </body>
 </html>
