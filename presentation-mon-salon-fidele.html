@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Présentation Mon Salon Fidèle</title>
+    
+    <!-- Fonts: Outfit (Headings) & Inter (Body) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <style>
+        /* Base Setup */
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #FAF8F5; /* Warm off-white */
+            color: #2C3E50;
+            overflow: hidden; /* No scrolling allowed */
+            margin: 0;
+            height: 100vh;
+            width: 100vw;
+        }
+
+        h1, h2, h3, h4, .font-heading {
+            font-family: 'Outfit', sans-serif;
+        }
+
+        /* Slide Transition System */
+        .slide-container {
+            position: relative;
+            height: 100vh;
+            width: 100vw;
+        }
+
+        .slide {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex; /* Flex to center content */
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.5s ease-in-out, transform 0.5s cubic-bezier(0.2, 0.8, 0.2, 1);
+            transform: translateY(20px);
+            z-index: 0;
+            padding: 2rem;
+            box-sizing: border-box;
+        }
+
+        .slide.active {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+            z-index: 10;
+        }
+
+        /* Utilities */
+        .bg-pattern {
+            background-image: radial-gradient(#F4A582 0.5px, transparent 0.5px);
+            background-size: 32px 32px;
+            opacity: 0.15;
+            position: absolute;
+            inset: 0;
+            z-index: -1;
+            pointer-events: none;
+        }
+        
+        .blob {
+            position: absolute;
+            filter: blur(80px);
+            z-index: -1;
+            opacity: 0.4;
+            animation: float 10s ease-in-out infinite;
+        }
+        @keyframes float {
+            0% { transform: translate(0, 0); }
+            50% { transform: translate(10px, -20px); }
+            100% { transform: translate(0, 0); }
+        }
+    </style>
+</head>
+<body class="antialiased selection:bg-[#F4A582] selection:text-white">
+
+    <!-- Background Elements -->
+    <div class="bg-pattern"></div>
+    <div class="blob bg-[#F4A582] w-96 h-96 rounded-full top-[-10%] right-[-10%]"></div>
+    <div class="blob bg-[#FF9470] w-64 h-64 rounded-full bottom-[-10%] left-[-10%]"></div>
+
+    <!-- Main Container -->
+    <main class="slide-container" id="presentation">
+
+        <!-- SLIDE 1: Title -->
+        <section class="slide active" data-index="1">
+            <div class="max-w-4xl text-center space-y-8">
+                <div class="inline-flex items-center justify-center w-20 h-20 bg-[#FFF5F0] rounded-3xl mb-4 shadow-sm border border-[#F4A582]/20">
+                    <i data-lucide="sparkles" class="w-10 h-10 text-[#F4A582]"></i>
+                </div>
+                <h1 class="text-6xl md:text-8xl font-bold tracking-tight text-[#F4A582] mb-2 leading-tight">
+                    Mon Salon Fidèle
+                </h1>
+                <p class="text-2xl md:text-4xl text-[#2C3E50] font-light tracking-wide">
+                    Récupérez vos clients qui disparaissent
+                </p>
+            </div>
+        </section>
+
+        <!-- SLIDE 2: Le Problème -->
+        <section class="slide" data-index="2">
+            <div class="max-w-6xl w-full grid grid-cols-1 md:grid-cols-2 gap-16 items-center px-4">
+                <div class="text-center md:text-left">
+                    <h2 class="text-4xl md:text-5xl font-bold text-[#2C3E50] mb-8 font-heading">
+                        Le Problème
+                    </h2>
+                    <div class="text-[140px] leading-none font-bold text-[#FF9470] tracking-tighter mb-2 font-heading">
+                        70%
+                    </div>
+                    <p class="text-3xl text-[#2C3E50] font-light">
+                        de vos clients ne <span class="font-medium">reviennent jamais</span>
+                    </p>
+                </div>
+
+                <div class="space-y-8">
+                    <div class="flex items-center gap-6 p-6 bg-white rounded-2xl shadow-sm border border-gray-100">
+                        <div class="bg-red-50 p-4 rounded-xl text-red-400 shrink-0">
+                            <i data-lucide="x" class="w-8 h-8"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-2xl font-semibold text-[#2C3E50] mb-1">No-shows</h3>
+                            <p class="text-lg text-[#7F8C8D]">Rendez-vous perdus</p>
+                        </div>
+                    </div>
+
+                    <div class="flex items-center gap-6 p-6 bg-white rounded-2xl shadow-sm border border-gray-100">
+                        <div class="bg-red-50 p-4 rounded-xl text-red-400 shrink-0">
+                            <i data-lucide="x" class="w-8 h-8"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-2xl font-semibold text-[#2C3E50] mb-1">Oublis</h3>
+                            <p class="text-lg text-[#7F8C8D]">"Je reviens bientôt" → jamais</p>
+                        </div>
+                    </div>
+
+                    <div class="flex items-center gap-6 p-6 bg-white rounded-2xl shadow-sm border border-gray-100">
+                        <div class="bg-red-50 p-4 rounded-xl text-red-400 shrink-0">
+                            <i data-lucide="x" class="w-8 h-8"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-2xl font-semibold text-[#2C3E50] mb-1">Pas de suivi</h3>
+                            <p class="text-lg text-[#7F8C8D]">Vous ne savez pas qui appeler</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SLIDE 3: Comment ça marche -->
+        <section class="slide" data-index="3">
+            <div class="max-w-7xl w-full text-center px-4">
+                <h2 class="text-5xl font-bold text-[#2C3E50] mb-16 font-heading">
+                    Comment ça marche
+                </h2>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-10 mb-16">
+                    <!-- Step 1 -->
+                    <div class="bg-white p-10 rounded-[2rem] border border-[#F4A582]/20 shadow-lg shadow-[#F4A582]/5 relative group">
+                        <div class="w-12 h-12 bg-[#F4A582] text-white rounded-full flex items-center justify-center text-xl font-bold absolute -top-6 left-1/2 -translate-x-1/2 shadow-md">1</div>
+                        <div class="h-24 flex items-center justify-center text-5xl mb-6">🔗</div>
+                        <h3 class="text-2xl font-semibold text-[#2C3E50] mb-4">Scan au comptoir</h3>
+                        <p class="text-lg text-[#7F8C8D]">Client scanne QR code au comptoir</p>
+                    </div>
+
+                    <!-- Step 2 -->
+                    <div class="bg-white p-10 rounded-[2rem] border border-[#F4A582]/20 shadow-lg shadow-[#F4A582]/5 relative group">
+                        <div class="w-12 h-12 bg-[#F4A582] text-white rounded-full flex items-center justify-center text-xl font-bold absolute -top-6 left-1/2 -translate-x-1/2 shadow-md">2</div>
+                        <div class="h-24 flex items-center justify-center text-5xl mb-6">⭐</div>
+                        <h3 class="text-2xl font-semibold text-[#2C3E50] mb-4">Points auto</h3>
+                        <p class="text-lg text-[#7F8C8D]">Gagne des points automatiquement</p>
+                    </div>
+
+                    <!-- Step 3 -->
+                    <div class="bg-white p-10 rounded-[2rem] border border-[#F4A582]/20 shadow-lg shadow-[#F4A582]/5 relative group">
+                        <div class="w-12 h-12 bg-[#F4A582] text-white rounded-full flex items-center justify-center text-xl font-bold absolute -top-6 left-1/2 -translate-x-1/2 shadow-md">3</div>
+                        <div class="h-24 flex items-center justify-center text-5xl mb-6">🎁</div>
+                        <h3 class="text-2xl font-semibold text-[#2C3E50] mb-4">Récompense</h3>
+                        <p class="text-lg text-[#7F8C8D]">Échange contre une récompense</p>
+                    </div>
+                </div>
+
+                <p class="text-2xl text-[#2C3E50] font-light bg-[#FFF5F0] inline-block px-8 py-3 rounded-full border border-[#F4A582]/20">
+                    Simple. Zéro complication. Pas d'app à télécharger.
+                </p>
+            </div>
+        </section>
+
+        <!-- SLIDE 4: Messages Automatiques (NEW) -->
+        <section class="slide" data-index="4">
+            <div class="max-w-6xl w-full px-4">
+                <div class="text-center mb-16">
+                    <h2 class="text-5xl md:text-6xl font-bold text-[#F4A582] mb-4 font-heading">
+                        Messages Automatiques
+                    </h2>
+                    <p class="text-3xl text-[#2C3E50] font-light">
+                        Le secret pour les ramener
+                    </p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-10 mb-16">
+                    
+                    <div class="flex items-center gap-6 p-8 bg-white rounded-3xl border border-[#F4A582]/10 shadow-lg shadow-[#F4A582]/5">
+                        <div class="text-6xl shrink-0">📧</div>
+                        <div>
+                            <h3 class="text-2xl font-semibold text-[#2C3E50] mb-2">Email d'anniversaire</h3>
+                            <p class="text-xl text-[#7F8C8D]">Relance automatique</p>
+                        </div>
+                    </div>
+
+                    <div class="flex items-center gap-6 p-8 bg-white rounded-3xl border border-[#F4A582]/10 shadow-lg shadow-[#F4A582]/5">
+                        <div class="text-6xl shrink-0">🔔</div>
+                        <div>
+                            <h3 class="text-2xl font-semibold text-[#2C3E50] mb-2">Notifications si inactivité</h3>
+                            <p class="text-xl text-[#7F8C8D]">"On vous manque !"</p>
+                        </div>
+                    </div>
+
+                    <div class="flex items-center gap-6 p-8 bg-white rounded-3xl border border-[#F4A582]/10 shadow-lg shadow-[#F4A582]/5">
+                        <div class="text-6xl shrink-0">💬</div>
+                        <div>
+                            <h3 class="text-2xl font-semibold text-[#2C3E50] mb-2">Rappel expiration</h3>
+                            <p class="text-xl text-[#7F8C8D]">Urgence d'utiliser les points</p>
+                        </div>
+                    </div>
+
+                    <div class="flex items-center gap-6 p-8 bg-white rounded-3xl border border-[#F4A582]/10 shadow-lg shadow-[#F4A582]/5">
+                        <div class="text-6xl shrink-0">⏰</div>
+                        <div>
+                            <h3 class="text-2xl font-semibold text-[#2C3E50] mb-2">Suivi personnalisé</h3>
+                            <p class="text-xl text-[#7F8C8D]">Sans aucun effort manuel</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="text-center">
+                    <p class="text-2xl md:text-3xl font-bold text-[#F4A582] bg-[#FFF5F0] inline-block px-10 py-4 rounded-full border border-[#F4A582]/20">
+                        C'est ça qui fait revenir les clients. Automatiquement.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- SLIDE 5: Ce que tu contrôles -->
+        <section class="slide" data-index="5">
+            <div class="max-w-5xl w-full px-4">
+                <div class="text-center mb-16">
+                    <h2 class="text-5xl font-bold text-[#2C3E50] mb-4 font-heading">
+                        Ce que tu contrôles
+                    </h2>
+                    <div class="h-1.5 w-32 bg-[#F4A582] mx-auto rounded-full"></div>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-x-16 gap-y-8">
+                    <!-- Items -->
+                    <div class="flex items-center gap-4 p-4 rounded-xl bg-white shadow-sm border border-gray-100 hover:border-[#F4A582]/30 transition-colors">
+                        <div class="w-8 h-8 rounded-full bg-[#E0F2F1] text-[#4CAF50] flex items-center justify-center shrink-0">
+                            <i data-lucide="check" class="w-5 h-5"></i>
+                        </div>
+                        <span class="text-xl text-[#2C3E50]">QR code scannable au comptoir</span>
+                    </div>
+
+                    <div class="flex items-center gap-4 p-4 rounded-xl bg-white shadow-sm border border-gray-100 hover:border-[#F4A582]/30 transition-colors">
+                        <div class="w-8 h-8 rounded-full bg-[#E0F2F1] text-[#4CAF50] flex items-center justify-center shrink-0">
+                            <i data-lucide="check" class="w-5 h-5"></i>
+                        </div>
+                        <span class="text-xl text-[#2C3E50]">Récompenses que <span class="text-[#F4A582] font-semibold">TU</span> choisis</span>
+                    </div>
+
+                    <div class="flex items-center gap-4 p-4 rounded-xl bg-white shadow-sm border border-gray-100 hover:border-[#F4A582]/30 transition-colors">
+                        <div class="w-8 h-8 rounded-full bg-[#E0F2F1] text-[#4CAF50] flex items-center justify-center shrink-0">
+                            <i data-lucide="check" class="w-5 h-5"></i>
+                        </div>
+                        <span class="text-xl text-[#2C3E50]">Inscription cliente en 15 secondes</span>
+                    </div>
+
+                    <div class="flex items-center gap-4 p-4 rounded-xl bg-white shadow-sm border border-gray-100 hover:border-[#F4A582]/30 transition-colors">
+                        <div class="w-8 h-8 rounded-full bg-[#E0F2F1] text-[#4CAF50] flex items-center justify-center shrink-0">
+                            <i data-lucide="check" class="w-5 h-5"></i>
+                        </div>
+                        <span class="text-xl text-[#2C3E50]">Dashboard avec tous les clients et stats</span>
+                    </div>
+
+                    <div class="flex items-center gap-4 p-4 rounded-xl bg-white shadow-sm border border-gray-100 hover:border-[#F4A582]/30 transition-colors">
+                        <div class="w-8 h-8 rounded-full bg-[#E0F2F1] text-[#4CAF50] flex items-center justify-center shrink-0">
+                            <i data-lucide="check" class="w-5 h-5"></i>
+                        </div>
+                        <span class="text-xl text-[#2C3E50]">Points automatiques à chaque visite</span>
+                    </div>
+
+                    <div class="flex items-center gap-4 p-4 rounded-xl bg-white shadow-sm border border-gray-100 hover:border-[#F4A582]/30 transition-colors">
+                        <div class="w-8 h-8 rounded-full bg-[#E0F2F1] text-[#4CAF50] flex items-center justify-center shrink-0">
+                            <i data-lucide="check" class="w-5 h-5"></i>
+                        </div>
+                        <span class="text-xl text-[#2C3E50]">Notifications automatiques</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SLIDE 6: Les Maths Simples -->
+        <section class="slide" data-index="6">
+            <div class="max-w-4xl w-full px-4">
+                <h2 class="text-5xl font-bold text-[#2C3E50] text-center mb-12 font-heading">
+                    Les Maths Simples
+                </h2>
+
+                <div class="bg-[#FFF5F0] rounded-[2.5rem] p-12 border-l-8 border-[#F4A582] shadow-xl shadow-[#F4A582]/10 relative overflow-hidden">
+                    <div class="absolute right-0 top-0 w-64 h-full bg-white opacity-40 skew-x-12"></div>
+                    
+                    <div class="relative z-10 space-y-8">
+                        <div class="flex justify-between items-center text-xl md:text-2xl border-b border-[#F4A582]/20 pb-4">
+                            <span class="text-[#7F8C8D]">Coût: Mon Salon Fidèle</span>
+                            <span class="font-semibold text-[#2C3E50]">49€/mois</span>
+                        </div>
+                        
+                        <div class="flex justify-between items-center text-xl md:text-2xl border-b border-[#F4A582]/20 pb-4">
+                            <span class="text-[#7F8C8D]">Besoin de réactiver</span>
+                            <span class="font-bold text-[#F4A582]">1 cliente seulement</span>
+                        </div>
+
+                        <div class="flex justify-between items-center text-xl md:text-2xl pb-4">
+                            <span class="text-[#7F8C8D]">1 cliente × 50€ visite =</span>
+                            <span class="font-semibold text-[#2C3E50]">50€ récupérés</span>
+                        </div>
+
+                        <!-- Divider line -->
+                        <div class="w-full h-px bg-[#F4A582] opacity-50 my-6"></div>
+
+                        <!-- Gain -->
+                        <div class="flex justify-between items-center">
+                            <span class="text-2xl font-medium text-[#2C3E50]">Gain net / mois</span>
+                            <span class="text-5xl md:text-6xl font-bold text-[#4CAF50] font-heading">200€ → 500€+</span>
+                        </div>
+                    </div>
+                </div>
+
+                <p class="text-center text-[#7F8C8D] mt-10 text-xl italic">
+                    "Et ça c'est conservateur. Beaucoup de salons voient le double."
+                </p>
+            </div>
+        </section>
+
+        <!-- SLIDE 7: 30 jours gratuits (CLOSE) -->
+        <section class="slide" data-index="7">
+            <div class="max-w-4xl w-full text-center px-4">
+                <div class="bg-white rounded-[3rem] p-16 shadow-2xl shadow-[#F4A582]/20 border border-[#F4A582]/10">
+                    <h2 class="text-6xl md:text-7xl font-bold text-[#F4A582] mb-6 font-heading">
+                        30 jours gratuits
+                    </h2>
+                    <p class="text-3xl text-[#2C3E50] font-semibold mb-10">
+                        Zéro engagement. Pas de CB maintenant.
+                    </p>
+                    
+                    <p class="text-xl text-[#7F8C8D] mb-14 max-w-2xl mx-auto leading-relaxed">
+                        Essaie. Vois les résultats. Après 30 jours tu décides.<br>
+                        Si ça marche pas? Tu arrêtes. C'est fini. Aucun truc louche.
+                    </p>
+
+                    <div class="flex flex-col md:flex-row gap-8 justify-center items-center">
+                        <button class="px-10 py-5 bg-[#F4A582] text-white rounded-full font-semibold text-xl shadow-lg shadow-[#F4A582]/40 hover:bg-[#E8956E] hover:scale-105 transition-all duration-300 w-full md:w-auto">
+                            Je veux essayer
+                        </button>
+                        
+                        <button class="px-10 py-5 bg-transparent border-2 border-[#E5E7EB] text-[#7F8C8D] rounded-full font-medium text-xl hover:border-[#F4A582] hover:text-[#F4A582] transition-colors duration-300 w-full md:w-auto">
+                            Une question d'abord
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Navigation Controls -->
+    <div class="fixed bottom-8 left-0 right-0 z-50 px-8 flex justify-between items-center pointer-events-none">
+        
+        <!-- Counter -->
+        <div class="text-[#7F8C8D] font-medium text-lg pointer-events-auto bg-white/80 backdrop-blur px-4 py-2 rounded-full border border-gray-200">
+            <span id="slide-current">1</span> / <span id="slide-total">7</span>
+        </div>
+
+        <!-- Buttons -->
+        <div class="flex gap-4 pointer-events-auto">
+            <button onclick="prevSlide()" id="btn-prev" class="w-14 h-14 rounded-full bg-white text-[#2C3E50] border border-gray-200 flex items-center justify-center shadow-lg hover:border-[#F4A582] hover:text-[#F4A582] transition-all disabled:opacity-30 disabled:cursor-not-allowed">
+                <i data-lucide="arrow-left" class="w-6 h-6"></i>
+            </button>
+            <button onclick="nextSlide()" id="btn-next" class="w-14 h-14 rounded-full bg-[#F4A582] text-white flex items-center justify-center shadow-lg shadow-[#F4A582]/40 hover:bg-[#E8956E] hover:scale-105 transition-all disabled:opacity-30 disabled:cursor-not-allowed">
+                <i data-lucide="arrow-right" class="w-6 h-6"></i>
+            </button>
+        </div>
+    </div>
+
+    <script>
+        // Initialize Icons
+        lucide.createIcons();
+
+        // Slide Logic
+        const slides = document.querySelectorAll('.slide');
+        const totalSlides = slides.length;
+        let currentSlideIndex = 0;
+
+        const elCurrent = document.getElementById('slide-current');
+        const elTotal = document.getElementById('slide-total');
+        const btnPrev = document.getElementById('btn-prev');
+        const btnNext = document.getElementById('btn-next');
+
+        elTotal.innerText = totalSlides;
+
+        function updateUI() {
+            // Update slides
+            slides.forEach((slide, index) => {
+                if(index === currentSlideIndex) {
+                    slide.classList.add('active');
+                } else {
+                    slide.classList.remove('active');
+                }
+            });
+
+            // Update Counter
+            elCurrent.innerText = currentSlideIndex + 1;
+
+            // Update Buttons
+            btnPrev.disabled = currentSlideIndex === 0;
+            btnNext.disabled = currentSlideIndex === totalSlides - 1;
+            
+            lucide.createIcons();
+        }
+
+        function nextSlide() {
+            if (currentSlideIndex < totalSlides - 1) {
+                currentSlideIndex++;
+                updateUI();
+            }
+        }
+
+        function prevSlide() {
+            if (currentSlideIndex > 0) {
+                currentSlideIndex--;
+                updateUI();
+            }
+        }
+
+        // Keyboard Navigation
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowRight' || e.key === ' ') {
+                nextSlide();
+            } else if (e.key === 'ArrowLeft') {
+                prevSlide();
+            }
+        });
+
+        // Initial load
+        updateUI();
+    </script>
+</body>
+</html>
