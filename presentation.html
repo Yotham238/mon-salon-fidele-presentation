@@ -1,0 +1,690 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mon Salon Fidèle - Présentation</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .presentation-container {
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            width: 100%;
+            max-width: 1200px;
+            overflow: hidden;
+        }
+
+        .slide {
+            display: none;
+            padding: 60px;
+            min-height: 600px;
+            animation: slideIn 0.5s ease-in-out;
+        }
+
+        .slide.active {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateX(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        /* SLIDE 1 : TITRE */
+        .slide-1 {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            text-align: center;
+        }
+
+        .slide-1 h1 {
+            font-size: 4rem;
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+
+        .slide-1 p {
+            font-size: 1.8rem;
+            margin-bottom: 40px;
+            opacity: 0.95;
+        }
+
+        .slide-1 .subtitle {
+            font-size: 1.2rem;
+            opacity: 0.8;
+            line-height: 1.8;
+        }
+
+        /* SLIDE 2 : LE PROBLÈME */
+        .slide-2 {
+            background: white;
+        }
+
+        .slide-2 h2 {
+            font-size: 2.5rem;
+            color: #333;
+            margin-bottom: 40px;
+            text-align: center;
+        }
+
+        .problem-stats {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        .stat-box {
+            background: #f8f9fa;
+            padding: 30px;
+            border-radius: 15px;
+            border-left: 5px solid #ff6b6b;
+            text-align: center;
+        }
+
+        .stat-box.warning {
+            border-left-color: #fcc419;
+        }
+
+        .stat-box h3 {
+            font-size: 1.2rem;
+            color: #666;
+            margin-bottom: 15px;
+            font-weight: 500;
+        }
+
+        .stat-box .number {
+            font-size: 3rem;
+            font-weight: 700;
+            color: #ff6b6b;
+            margin-bottom: 10px;
+        }
+
+        .stat-box.warning .number {
+            color: #fcc419;
+        }
+
+        .stat-box p {
+            font-size: 0.95rem;
+            color: #666;
+        }
+
+        .problem-question {
+            background: #ffe3e3;
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+            font-size: 1.4rem;
+            font-weight: 600;
+            color: #c92a2a;
+        }
+
+        /* SLIDE 3 : BEFORE/AFTER */
+        .slide-3 {
+            background: white;
+        }
+
+        .slide-3 h2 {
+            font-size: 2.5rem;
+            color: #333;
+            margin-bottom: 50px;
+            text-align: center;
+        }
+
+        .comparison {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: center;
+        }
+
+        .comparison-box {
+            padding: 40px;
+            border-radius: 15px;
+            text-align: center;
+        }
+
+        .comparison-box.before {
+            background: #ffe3e3;
+            border: 3px solid #ff6b6b;
+        }
+
+        .comparison-box.after {
+            background: #d3f9d8;
+            border: 3px solid #51cf66;
+        }
+
+        .comparison-box h3 {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+
+        .comparison-box.before h3 {
+            color: #c92a2a;
+        }
+
+        .comparison-box.after h3 {
+            color: #2f9e44;
+        }
+
+        .comparison-box .big-number {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+        }
+
+        .comparison-box.before .big-number {
+            color: #ff6b6b;
+        }
+
+        .comparison-box.after .big-number {
+            color: #51cf66;
+        }
+
+        .comparison-box p {
+            font-size: 1.1rem;
+            margin-top: 15px;
+        }
+
+        .comparison-box.before p {
+            color: #c92a2a;
+        }
+
+        .comparison-box.after p {
+            color: #2f9e44;
+        }
+
+        /* SLIDE 4 : LA SOLUTION */
+        .slide-4 {
+            background: white;
+        }
+
+        .slide-4 h2 {
+            font-size: 2.5rem;
+            color: #333;
+            margin-bottom: 50px;
+            text-align: center;
+        }
+
+        .solution-steps {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 30px;
+        }
+
+        .step {
+            background: #f0f4ff;
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+            border-top: 4px solid #667eea;
+        }
+
+        .step .icon {
+            font-size: 3rem;
+            margin-bottom: 15px;
+        }
+
+        .step h3 {
+            font-size: 1.3rem;
+            color: #333;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+
+        .step p {
+            font-size: 0.95rem;
+            color: #666;
+            line-height: 1.6;
+        }
+
+        /* SLIDE 5 : ROI */
+        .slide-5 {
+            background: white;
+        }
+
+        .slide-5 h2 {
+            font-size: 2.5rem;
+            color: #333;
+            margin-bottom: 50px;
+            text-align: center;
+        }
+
+        .roi-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+
+        .roi-numbers {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+        }
+
+        .roi-item {
+            background: #f8f9fa;
+            padding: 25px;
+            border-radius: 12px;
+        }
+
+        .roi-item label {
+            font-size: 0.95rem;
+            color: #666;
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        .roi-item .value {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #667eea;
+        }
+
+        .roi-item.profit .value {
+            color: #51cf66;
+        }
+
+        .roi-chart {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+        }
+
+        /* SLIDE 6 : PREUVE SOCIALE */
+        .slide-6 {
+            background: #f8f9fa;
+        }
+
+        .slide-6 h2 {
+            font-size: 2.5rem;
+            color: #333;
+            margin-bottom: 50px;
+            text-align: center;
+        }
+
+        .proof-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 30px;
+        }
+
+        .proof-item {
+            background: white;
+            padding: 40px;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+        }
+
+        .proof-item .number {
+            font-size: 3rem;
+            font-weight: 700;
+            color: #667eea;
+            margin-bottom: 10px;
+        }
+
+        .proof-item p {
+            font-size: 1rem;
+            color: #666;
+        }
+
+        /* SLIDE 7 : CLOSE */
+        .slide-7 {
+            background: linear-gradient(135deg, #51cf66 0%, #2f9e44 100%);
+            color: white;
+            text-align: center;
+        }
+
+        .slide-7 h2 {
+            font-size: 3rem;
+            margin-bottom: 40px;
+        }
+
+        .slide-7 p {
+            font-size: 1.4rem;
+            margin-bottom: 30px;
+            opacity: 0.95;
+        }
+
+        .cta-button {
+            background: white;
+            color: #2f9e44;
+            padding: 20px 40px;
+            border-radius: 10px;
+            font-size: 1.3rem;
+            font-weight: 700;
+            border: none;
+            cursor: pointer;
+            display: inline-block;
+            margin-top: 20px;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .cta-button:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+        }
+
+        /* CONTROLS */
+        .controls {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 60px;
+            background: #f8f9fa;
+            border-top: 1px solid #eee;
+        }
+
+        button {
+            background: #667eea;
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: 600;
+            transition: background 0.3s;
+        }
+
+        button:hover {
+            background: #764ba2;
+        }
+
+        button:disabled {
+            background: #ccc;
+            cursor: not-allowed;
+        }
+
+        .slide-counter {
+            font-size: 1rem;
+            color: #666;
+            font-weight: 600;
+        }
+
+        .slide-counter span {
+            color: #667eea;
+            font-weight: 700;
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 1024px) {
+            .slide {
+                padding: 40px;
+            }
+
+            .problem-stats,
+            .comparison,
+            .solution-steps,
+            .roi-container,
+            .proof-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .slide-1 h1 {
+                font-size: 2.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="presentation-container">
+        <!-- SLIDE 1: TITRE -->
+        <div class="slide slide-1 active">
+            <h1>Mon Salon Fidèle</h1>
+            <p>Fidélisez vos clientes</p>
+            <div class="subtitle">
+                De plus en plus de visites<br>
+                Moins de no-show<br>
+                Plus de revenu
+            </div>
+        </div>
+
+        <!-- SLIDE 2: LE PROBLÈME -->
+        <div class="slide slide-2">
+            <h2>Le Problème</h2>
+            <div class="problem-stats">
+                <div class="stat-box">
+                    <h3>Clientes qui oublient</h3>
+                    <div class="number">39%</div>
+                    <p>C'est presque 1 sur 3</p>
+                </div>
+                <div class="stat-box warning">
+                    <h3>Coût par no-show</h3>
+                    <div class="number">50-80€</div>
+                    <p>Revenu perdu instantanément</p>
+                </div>
+            </div>
+            <div class="problem-stats">
+                <div class="stat-box warning">
+                    <h3>Perte mensuelle</h3>
+                    <div class="number">600-1000€</div>
+                    <p>À 3 no-show par semaine</p>
+                </div>
+                <div class="stat-box">
+                    <h3>La question</h3>
+                    <p style="font-size: 1.2rem; font-weight: 600; color: #c92a2a;">Comment garder vos clientes?</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- SLIDE 3: AVANT/APRÈS -->
+        <div class="slide slide-3">
+            <h2>Avant vs Après Mon Salon Fidèle</h2>
+            <div class="comparison">
+                <div class="comparison-box before">
+                    <h3>❌ AVANT</h3>
+                    <div class="big-number">39%</div>
+                    <p>Taux de no-show</p>
+                    <div class="big-number" style="font-size: 2.5rem; color: #ff6b6b; margin-top: 20px;">-1000€/mois</div>
+                    <p>Revenu perdu</p>
+                </div>
+                <div class="comparison-box after">
+                    <h3>✅ APRÈS</h3>
+                    <div class="big-number">12%</div>
+                    <p>Taux de no-show</p>
+                    <div class="big-number" style="font-size: 2.5rem; color: #51cf66; margin-top: 20px;">+1000€/mois</div>
+                    <p>Revenu récupéré</p>
+                </div>
+            </div>
+            <div style="text-align: center; margin-top: 40px; font-size: 1.3rem; font-weight: 600; color: #2f9e44;">
+                💚 Réduction de 70% des no-shows
+            </div>
+        </div>
+
+        <!-- SLIDE 4: LA SOLUTION -->
+        <div class="slide slide-4">
+            <h2>La Solution : 3 Étapes Simples</h2>
+            <div class="solution-steps">
+                <div class="step">
+                    <div class="icon">📱</div>
+                    <h3>QR Code</h3>
+                    <p>Elles scannent une fois.<br>C'est enregistré pour toujours.</p>
+                </div>
+                <div class="step">
+                    <div class="icon">⭐</div>
+                    <h3>Points Automatiques</h3>
+                    <p>À chaque visite, elles gagnent des points.<br>Elles les voient augmenter.</p>
+                </div>
+                <div class="step">
+                    <div class="icon">📬</div>
+                    <h3>Rappels Automatiques</h3>
+                    <p>SMS/Email 24h avant le RDV.<br>Zéro oubli.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- SLIDE 5: ROI -->
+        <div class="slide slide-5">
+            <h2>ROI : Ça Paie Rapidement</h2>
+            <div class="roi-container">
+                <div class="roi-numbers">
+                    <div class="roi-item">
+                        <label>📊 Prix mensuel</label>
+                        <div class="value">49€</div>
+                    </div>
+                    <div class="roi-item">
+                        <label>💰 Économie par mois (1 no-show sauvé)</label>
+                        <div class="value">50€</div>
+                    </div>
+                    <div class="roi-item profit">
+                        <label>📈 Profit net (3 no-shows sauvés)</label>
+                        <div class="value">+150€/mois</div>
+                    </div>
+                    <div class="roi-item profit">
+                        <label>📅 ROI annuel</label>
+                        <div class="value">20x</div>
+                    </div>
+                </div>
+                <div class="roi-chart">
+                    <canvas id="roiChart"></canvas>
+                </div>
+            </div>
+        </div>
+
+        <!-- SLIDE 6: PREUVE SOCIALE -->
+        <div class="slide slide-6">
+            <h2>Preuve Sociale</h2>
+            <div class="proof-grid">
+                <div class="proof-item">
+                    <div class="number">50+</div>
+                    <p><strong>Salons actifs</strong> utilisent Mon Salon Fidèle</p>
+                </div>
+                <div class="proof-item">
+                    <div class="number">85%</div>
+                    <p><strong>Taux de rétention</strong> après 1 mois</p>
+                </div>
+                <div class="proof-item">
+                    <div class="number">10min</div>
+                    <p><strong>Temps de mise en place</strong> complète</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- SLIDE 7: CLOSE -->
+        <div class="slide slide-7">
+            <h2>Testez Mon Salon Fidèle</h2>
+            <p>7 jours gratuits</p>
+            <p style="font-size: 1.1rem; opacity: 0.9;">Aucune carte bancaire requise</p>
+            <p style="font-size: 1.1rem; opacity: 0.9;">Aucun engagement</p>
+            <div class="cta-button">Commencer le test →</div>
+        </div>
+
+        <!-- CONTROLS -->
+        <div class="controls">
+            <button id="prevBtn" onclick="changeSlide(-1)">← Précédent</button>
+            <div class="slide-counter">
+                Slide <span id="currentSlide">1</span> / <span id="totalSlides">7</span>
+            </div>
+            <button id="nextBtn" onclick="changeSlide(1)">Suivant →</button>
+        </div>
+    </div>
+
+    <script>
+        let currentSlide = 1;
+        const totalSlides = document.querySelectorAll('.slide').length;
+        document.getElementById('totalSlides').textContent = totalSlides;
+
+        function showSlide(n) {
+            const slides = document.querySelectorAll('.slide');
+            
+            if (n > totalSlides) {
+                currentSlide = totalSlides;
+            }
+            if (n < 1) {
+                currentSlide = 1;
+            }
+            
+            slides.forEach(slide => slide.classList.remove('active'));
+            slides[currentSlide - 1].classList.add('active');
+            
+            document.getElementById('currentSlide').textContent = currentSlide;
+            document.getElementById('prevBtn').disabled = currentSlide === 1;
+            document.getElementById('nextBtn').disabled = currentSlide === totalSlides;
+
+            if (currentSlide === 5) {
+                initROIChart();
+            }
+        }
+
+        function changeSlide(n) {
+            currentSlide += n;
+            showSlide(currentSlide);
+        }
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowLeft') changeSlide(-1);
+            if (e.key === 'ArrowRight') changeSlide(1);
+        });
+
+        function initROIChart() {
+            const ctx = document.getElementById('roiChart');
+            if (!ctx || ctx.chart) return;
+
+            ctx.chart = new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: ['Coût Mon Salon Fidèle', 'No-shows sauvés (3)'],
+                    datasets: [{
+                        label: 'Montant (€)',
+                        data: [49, 150],
+                        backgroundColor: ['#667eea', '#51cf66'],
+                        borderRadius: 8,
+                    }]
+                },
+                options: {
+                    indexAxis: 'y',
+                    responsive: true,
+                    maintainAspectRatio: true,
+                    plugins: {
+                        legend: {
+                            display: false
+                        }
+                    },
+                    scales: {
+                        x: {
+                            beginAtZero: true,
+                            max: 200,
+                            ticks: {
+                                callback: function(value) {
+                                    return value + '€';
+                                }
+                            }
+                        }
+                    }
+                }
+            });
+        }
+
+        showSlide(currentSlide);
+    </script>
+</body>
+</html>
