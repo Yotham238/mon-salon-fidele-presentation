@@ -1,477 +1,482 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Présentation Mon Salon Fidèle</title>
-    
-    <!-- Fonts: Outfit (Headings) & Inter (Body) -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet">
-    
-    <!-- Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    
-    <!-- Lucide Icons -->
-    <script src="https://unpkg.com/lucide@latest"></script>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Mon Salon Fidèle – Démo</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700;1,900&family=DM+Sans:wght@300;400;500;600&display=swap');
 
-    <style>
-        /* Base Setup */
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: #FAF8F5; /* Warm off-white */
-            color: #2C3E50;
-            overflow: hidden; /* No scrolling allowed */
-            margin: 0;
-            height: 100vh;
-            width: 100vw;
-        }
+:root {
+  --cream:        #fdf6f0;
+  --cream-dark:   #f5ede3;
+  --night:        #0f172a;
+  --night-soft:   #1e293b;
+  --rose:         #e91e8c;
+  --rose-light:   rgba(233,30,140,0.08);
+  --orange:       #f97316;
+  --orange-light: rgba(249,115,22,0.10);
+  --muted:        #64748b;
+  --border:       rgba(15,23,42,0.09);
+  --white:        #ffffff;
+}
 
-        h1, h2, h3, h4, .font-heading {
-            font-family: 'Outfit', sans-serif;
-        }
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-        /* Slide Transition System */
-        .slide-container {
-            position: relative;
-            height: 100vh;
-            width: 100vw;
-        }
+html, body {
+  width: 100%; height: 100%;
+  background: var(--cream);
+  font-family: 'DM Sans', sans-serif;
+  color: var(--night);
+  overflow: hidden;
+}
 
-        .slide {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            display: flex; /* Flex to center content */
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            opacity: 0;
-            visibility: hidden;
-            transition: opacity 0.5s ease-in-out, transform 0.5s cubic-bezier(0.2, 0.8, 0.2, 1);
-            transform: translateY(20px);
-            z-index: 0;
-            padding: 2rem;
-            box-sizing: border-box;
-        }
+/* ───── Topbar ───── */
+#topbar {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 300;
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 14px 36px;
+  background: rgba(253,246,240,0.88);
+  backdrop-filter: blur(14px);
+  border-bottom: 1px solid var(--border);
+}
+.logo {
+  display: flex; align-items: center; gap: 8px;
+  font-family: 'DM Sans', sans-serif; font-weight: 600;
+  font-size: 0.92rem; color: var(--night);
+}
+.logo-dot {
+  width: 10px; height: 10px; border-radius: 50%;
+  background: linear-gradient(135deg, var(--rose), var(--orange));
+}
+#slide-counter {
+  font-size: 0.8rem; font-weight: 400; color: var(--muted);
+}
+#slide-counter strong { color: var(--rose); font-weight: 600; }
 
-        .slide.active {
-            opacity: 1;
-            visibility: visible;
-            transform: translateY(0);
-            z-index: 10;
-        }
+/* ───── Deck ───── */
+#deck {
+  position: relative; width: 100%; height: 100%; overflow: hidden;
+}
 
-        /* Utilities */
-        .bg-pattern {
-            background-image: radial-gradient(#F4A582 0.5px, transparent 0.5px);
-            background-size: 32px 32px;
-            opacity: 0.15;
-            position: absolute;
-            inset: 0;
-            z-index: -1;
-            pointer-events: none;
-        }
-        
-        .blob {
-            position: absolute;
-            filter: blur(80px);
-            z-index: -1;
-            opacity: 0.4;
-            animation: float 10s ease-in-out infinite;
-        }
-        @keyframes float {
-            0% { transform: translate(0, 0); }
-            50% { transform: translate(10px, -20px); }
-            100% { transform: translate(0, 0); }
-        }
-    </style>
+.slide {
+  position: absolute; inset: 0;
+  display: flex; flex-direction: column;
+  justify-content: center; align-items: center;
+  padding: 76px 80px 100px;
+  opacity: 0; pointer-events: none;
+  transition: opacity 0.48s ease, transform 0.48s ease;
+  transform: translateX(52px);
+  background: var(--cream);
+}
+.slide.bg-alt { background: var(--cream-dark); }
+
+.slide.active {
+  opacity: 1; pointer-events: all; transform: translateX(0);
+}
+.slide.exit-left  { opacity: 0; transform: translateX(-52px); }
+.slide.exit-right { opacity: 0; transform: translateX(52px); }
+
+.slide-inner { width: 100%; max-width: 860px; }
+
+/* ───── Eyebrow ───── */
+.eyebrow {
+  display: inline-flex; align-items: center; gap: 8px;
+  font-size: 0.7rem; font-weight: 600;
+  letter-spacing: 0.2em; text-transform: uppercase;
+  color: var(--rose); margin-bottom: 16px;
+}
+.ew-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--rose); }
+
+/* ───── Headings ───── */
+h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(2rem, 4.2vw, 3.2rem);
+  font-weight: 900; line-height: 1.13;
+  color: var(--night); margin-bottom: 14px;
+}
+h1 em { font-style: italic; color: var(--rose); }
+h1 .ao { font-style: italic; color: var(--orange); }
+
+.subtitle {
+  font-size: 1.05rem; font-weight: 300; color: var(--muted);
+  line-height: 1.65; margin-bottom: 36px; max-width: 580px;
+}
+
+/* ───── Bullet list ───── */
+.bullets { display: flex; flex-direction: column; gap: 12px; }
+
+.bullet {
+  display: flex; gap: 14px; align-items: flex-start;
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 14px; padding: 16px 20px;
+  font-size: 0.98rem; line-height: 1.6; color: var(--night-soft);
+  box-shadow: 0 1px 6px rgba(15,23,42,0.05);
+  transition: box-shadow 0.2s, transform 0.2s;
+}
+.bullet:hover { box-shadow: 0 6px 20px rgba(15,23,42,0.09); transform: translateY(-2px); }
+
+.bi {
+  width: 34px; height: 34px; min-width: 34px;
+  border-radius: 10px; display: flex; align-items: center;
+  justify-content: center; font-size: 1.05rem;
+}
+.bi-r { background: var(--rose-light); }
+.bi-o { background: var(--orange-light); }
+.bi-n { background: rgba(15,23,42,0.05); }
+
+/* ───── 3-card row ───── */
+.cards-row { display: flex; gap: 16px; }
+
+.card {
+  flex: 1; background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 18px; padding: 24px 20px;
+  box-shadow: 0 2px 10px rgba(15,23,42,0.05);
+  transition: box-shadow 0.2s, transform 0.2s;
+}
+.card:hover { box-shadow: 0 8px 28px rgba(15,23,42,0.09); transform: translateY(-3px); }
+.ct-r { border-top: 3px solid var(--rose); }
+.ct-o { border-top: 3px solid var(--orange); }
+.ct-n { border-top: 3px solid var(--night); }
+
+.card-emoji { font-size: 1.6rem; margin-bottom: 12px; }
+.card-label {
+  font-size: 0.72rem; font-weight: 600;
+  letter-spacing: 0.15em; text-transform: uppercase;
+  color: var(--muted); margin-bottom: 8px;
+}
+.card-q {
+  font-family: 'Playfair Display', serif;
+  font-size: 1rem; font-weight: 700; font-style: italic;
+  color: var(--night); line-height: 1.45;
+}
+.card-text {
+  font-size: 0.91rem; color: var(--muted); line-height: 1.6;
+}
+.card-hl { color: var(--rose); font-weight: 600; }
+
+/* SMS */
+.sms-wrap { margin-top: 12px; }
+.sms-tag {
+  font-size: 0.68rem; font-weight: 600;
+  letter-spacing: 0.12em; text-transform: uppercase;
+  color: var(--rose); margin-bottom: 6px;
+}
+.sms-bubble {
+  background: var(--cream);
+  border: 1px solid rgba(233,30,140,0.2);
+  border-radius: 12px 12px 12px 4px;
+  padding: 12px 14px;
+  font-size: 0.86rem; line-height: 1.6; color: var(--night-soft);
+}
+
+/* ───── Timeline ───── */
+.timeline { display: flex; flex-direction: column; }
+.tl-row { display: flex; gap: 18px; align-items: flex-start; }
+.tl-left { display: flex; flex-direction: column; align-items: center; min-width: 38px; }
+.tl-num {
+  width: 38px; height: 38px; border-radius: 50%;
+  background: linear-gradient(135deg, var(--rose), var(--orange));
+  display: flex; align-items: center; justify-content: center;
+  font-family: 'Playfair Display', serif;
+  font-weight: 900; font-size: 0.95rem; color: #fff;
+  box-shadow: 0 4px 14px rgba(233,30,140,0.22);
+  flex-shrink: 0;
+}
+.tl-line {
+  width: 2px; flex: 1; min-height: 20px;
+  background: linear-gradient(to bottom, rgba(233,30,140,0.25), rgba(249,115,22,0.12));
+  margin: 4px 0;
+}
+.tl-content { padding: 4px 0 22px; flex: 1; }
+.tl-title { font-size: 0.97rem; font-weight: 600; color: var(--night); margin-bottom: 4px; }
+.tl-desc  { font-size: 0.86rem; color: var(--muted); line-height: 1.55; }
+.tl-forks { display: flex; gap: 10px; margin-top: 9px; }
+.tl-fork {
+  flex: 1; background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 12px; padding: 11px 13px;
+  font-size: 0.82rem; color: var(--night-soft); line-height: 1.45;
+}
+.tl-fork strong {
+  display: block; color: var(--rose);
+  font-size: 0.73rem; font-weight: 600;
+  text-transform: uppercase; letter-spacing: 0.07em;
+  margin-bottom: 3px;
+}
+
+/* ───── Pricing ───── */
+.price-row {
+  display: flex; align-items: baseline; gap: 5px;
+  margin-bottom: 26px;
+}
+.price-amount {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(3.2rem, 7.5vw, 5.2rem);
+  font-weight: 900; line-height: 1;
+  background: linear-gradient(90deg, var(--rose) 0%, var(--orange) 100%);
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.price-period { font-size: 1.15rem; color: var(--muted); font-weight: 300; }
+
+.cta-list { display: flex; flex-direction: column; gap: 11px; margin-bottom: 30px; }
+.cta-item {
+  display: flex; gap: 11px; align-items: flex-start;
+  font-size: 0.98rem; color: var(--night-soft); line-height: 1.55;
+}
+.cta-dot {
+  width: 7px; height: 7px; border-radius: 50%;
+  flex-shrink: 0; margin-top: 7px;
+  background: var(--rose);
+}
+.cta-dot.o { background: var(--orange); }
+
+.btn-cta {
+  display: inline-flex; align-items: center; gap: 10px;
+  background: linear-gradient(90deg, var(--rose) 0%, var(--orange) 100%);
+  color: #fff;
+  font-family: 'DM Sans', sans-serif; font-weight: 600;
+  font-size: 0.98rem;
+  border: none; border-radius: 50px; padding: 16px 34px;
+  cursor: pointer;
+  box-shadow: 0 8px 26px rgba(233,30,140,0.28);
+  transition: box-shadow 0.2s, transform 0.2s;
+}
+.btn-cta:hover { box-shadow: 0 12px 38px rgba(233,30,140,0.42); transform: translateY(-2px); }
+
+/* ───── Bottom nav ───── */
+#nav {
+  position: fixed; bottom: 24px; left: 50%; transform: translateX(-50%);
+  display: flex; align-items: center; gap: 18px; z-index: 200;
+  background: rgba(255,255,255,0.88);
+  backdrop-filter: blur(16px);
+  border: 1px solid var(--border);
+  border-radius: 50px; padding: 7px 14px;
+  box-shadow: 0 4px 22px rgba(15,23,42,0.09);
+}
+.nav-btn {
+  background: transparent; border: none;
+  color: var(--night); font-family: 'DM Sans', sans-serif;
+  font-weight: 500; font-size: 0.85rem;
+  border-radius: 50px; padding: 7px 18px;
+  cursor: pointer; transition: background 0.2s, color 0.2s;
+}
+.nav-btn:hover { background: var(--rose-light); color: var(--rose); }
+.nav-btn:disabled { opacity: 0.28; pointer-events: none; }
+
+#dots { display: flex; gap: 7px; align-items: center; }
+.dot {
+  width: 7px; height: 7px; border-radius: 50%;
+  background: rgba(15,23,42,0.17); cursor: pointer;
+  transition: background 0.3s, transform 0.3s;
+}
+.dot.active { background: var(--rose); transform: scale(1.45); }
+
+/* Responsive */
+@media (max-width: 680px) {
+  .slide { padding: 72px 22px 95px; }
+  .cards-row, .tl-forks { flex-direction: column; }
+  h1 { font-size: 1.85rem; }
+}
+</style>
 </head>
-<body class="antialiased selection:bg-[#F4A582] selection:text-white">
+<body>
 
-    <!-- Background Elements -->
-    <div class="bg-pattern"></div>
-    <div class="blob bg-[#F4A582] w-96 h-96 rounded-full top-[-10%] right-[-10%]"></div>
-    <div class="blob bg-[#FF9470] w-64 h-64 rounded-full bottom-[-10%] left-[-10%]"></div>
+<div id="topbar">
+  <div class="logo"><div class="logo-dot"></div>Mon Salon Fidèle</div>
+  <div id="slide-counter">Slide <strong id="cur-n">1</strong> / 6</div>
+</div>
 
-    <!-- Main Container -->
-    <main class="slide-container" id="presentation">
+<div id="deck">
 
-        <!-- SLIDE 1: Title -->
-        <section class="slide active" data-index="1">
-            <div class="max-w-4xl text-center space-y-8">
-                <div class="inline-flex items-center justify-center w-20 h-20 bg-[#FFF5F0] rounded-3xl mb-4 shadow-sm border border-[#F4A582]/20">
-                    <i data-lucide="sparkles" class="w-10 h-10 text-[#F4A582]"></i>
-                </div>
-                <h1 class="text-6xl md:text-8xl font-bold tracking-tight text-[#F4A582] mb-2 leading-tight">
-                    Mon Salon Fidèle
-                </h1>
-                <p class="text-2xl md:text-4xl text-[#2C3E50] font-light tracking-wide">
-                    Récupérez vos clients qui disparaissent
-                </p>
-            </div>
-        </section>
-
-        <!-- SLIDE 2: Le Problème (UPDATED) -->
-        <section class="slide" data-index="2">
-            <div class="max-w-6xl w-full grid grid-cols-1 md:grid-cols-2 gap-16 items-center px-4">
-                <div class="text-center md:text-left">
-                    <h2 class="text-4xl md:text-5xl font-bold text-[#2C3E50] mb-6 font-heading">
-                        Le Problème
-                    </h2>
-                    <div class="text-[100px] md:text-[120px] leading-none font-bold text-[#FF9470] tracking-tighter mb-4 font-heading">
-                        30-40%
-                    </div>
-                    <p class="text-3xl text-[#2C3E50] font-light leading-snug">
-                        de tes clientes <span class="font-medium text-[#F4A582]">disparaissent</span><br>après 2-3 visites
-                    </p>
-                </div>
-
-                <div class="space-y-6">
-                    <!-- Card 1 -->
-                    <div class="flex items-center gap-6 p-6 bg-white rounded-2xl shadow-sm border border-gray-100 hover:border-red-100 transition-colors">
-                        <div class="bg-red-50 p-4 rounded-xl text-red-400 shrink-0">
-                            <i data-lucide="eye-off" class="w-8 h-8"></i>
-                        </div>
-                        <div>
-                            <h3 class="text-xl font-semibold text-[#2C3E50] mb-1">Tu ne sais pas qui part</h3>
-                            <p class="text-lg text-[#7F8C8D]">Aucune alerte quand une cliente t'oublie.</p>
-                        </div>
-                    </div>
-
-                    <!-- Card 2 -->
-                    <div class="flex items-center gap-6 p-6 bg-white rounded-2xl shadow-sm border border-gray-100 hover:border-red-100 transition-colors">
-                        <div class="bg-red-50 p-4 rounded-xl text-red-400 shrink-0">
-                            <i data-lucide="file-question" class="w-8 h-8"></i>
-                        </div>
-                        <div>
-                            <h3 class="text-xl font-semibold text-[#2C3E50] mb-1">Zéro info préférences</h3>
-                            <p class="text-lg text-[#7F8C8D]">Tu ne connais pas leurs habitudes réelles.</p>
-                        </div>
-                    </div>
-
-                    <!-- Card 3 -->
-                    <div class="flex items-center gap-6 p-6 bg-white rounded-2xl shadow-sm border border-gray-100 hover:border-red-100 transition-colors">
-                        <div class="bg-red-50 p-4 rounded-xl text-red-400 shrink-0">
-                            <i data-lucide="refresh-ccw" class="w-8 h-8"></i>
-                        </div>
-                        <div>
-                            <h3 class="text-xl font-semibold text-[#2C3E50] mb-1">Acquisition constante</h3>
-                            <p class="text-lg text-[#7F8C8D]">Tu dois payer pour trouver des nouvelles.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- SLIDE 3: Comment ça marche -->
-        <section class="slide" data-index="3">
-            <div class="max-w-7xl w-full text-center px-4">
-                <h2 class="text-5xl font-bold text-[#2C3E50] mb-16 font-heading">
-                    Comment ça marche
-                </h2>
-
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-10 mb-16">
-                    <!-- Step 1 -->
-                    <div class="bg-white p-10 rounded-[2rem] border border-[#F4A582]/20 shadow-lg shadow-[#F4A582]/5 relative group">
-                        <div class="w-12 h-12 bg-[#F4A582] text-white rounded-full flex items-center justify-center text-xl font-bold absolute -top-6 left-1/2 -translate-x-1/2 shadow-md">1</div>
-                        <div class="h-24 flex items-center justify-center text-5xl mb-6">🔗</div>
-                        <h3 class="text-2xl font-semibold text-[#2C3E50] mb-4">Scan au comptoir</h3>
-                        <p class="text-lg text-[#7F8C8D]">Client scanne QR code au comptoir</p>
-                    </div>
-
-                    <!-- Step 2 -->
-                    <div class="bg-white p-10 rounded-[2rem] border border-[#F4A582]/20 shadow-lg shadow-[#F4A582]/5 relative group">
-                        <div class="w-12 h-12 bg-[#F4A582] text-white rounded-full flex items-center justify-center text-xl font-bold absolute -top-6 left-1/2 -translate-x-1/2 shadow-md">2</div>
-                        <div class="h-24 flex items-center justify-center text-5xl mb-6">⭐</div>
-                        <h3 class="text-2xl font-semibold text-[#2C3E50] mb-4">Points auto</h3>
-                        <p class="text-lg text-[#7F8C8D]">Gagne des points automatiquement</p>
-                    </div>
-
-                    <!-- Step 3 -->
-                    <div class="bg-white p-10 rounded-[2rem] border border-[#F4A582]/20 shadow-lg shadow-[#F4A582]/5 relative group">
-                        <div class="w-12 h-12 bg-[#F4A582] text-white rounded-full flex items-center justify-center text-xl font-bold absolute -top-6 left-1/2 -translate-x-1/2 shadow-md">3</div>
-                        <div class="h-24 flex items-center justify-center text-5xl mb-6">🎁</div>
-                        <h3 class="text-2xl font-semibold text-[#2C3E50] mb-4">Récompense</h3>
-                        <p class="text-lg text-[#7F8C8D]">Échange contre une récompense</p>
-                    </div>
-                </div>
-
-                <p class="text-2xl text-[#2C3E50] font-light bg-[#FFF5F0] inline-block px-8 py-3 rounded-full border border-[#F4A582]/20">
-                    Simple. Zéro complication. Pas d'app à télécharger.
-                </p>
-            </div>
-        </section>
-
-        <!-- SLIDE 4: Segmentation & Offres Ciblées -->
-        <section class="slide" data-index="4">
-            <div class="max-w-6xl w-full px-4">
-                <div class="text-center mb-16">
-                    <h2 class="text-5xl md:text-6xl font-bold text-[#F4A582] mb-4 font-heading">
-                        Segmentation & Offres Ciblées
-                    </h2>
-                    <p class="text-3xl text-[#2C3E50] font-light">
-                        Parler à chacune ce qu'elle aime
-                    </p>
-                </div>
-
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-10 mb-16">
-                    
-                    <div class="flex items-center gap-6 p-8 bg-white rounded-3xl border border-[#F4A582]/10 shadow-lg shadow-[#F4A582]/5 hover:border-[#F4A582]/30 transition-colors">
-                        <div class="text-6xl shrink-0">👯</div>
-                        <div>
-                            <h3 class="text-2xl font-semibold text-[#2C3E50] mb-2">Segmenter par service</h3>
-                            <p class="text-xl text-[#7F8C8D]">Coiffure, extensions, esthétique...</p>
-                        </div>
-                    </div>
-
-                    <div class="flex items-center gap-6 p-8 bg-white rounded-3xl border border-[#F4A582]/10 shadow-lg shadow-[#F4A582]/5 hover:border-[#F4A582]/30 transition-colors">
-                        <div class="text-6xl shrink-0">💌</div>
-                        <div>
-                            <h3 class="text-2xl font-semibold text-[#2C3E50] mb-2">Offres ciblées</h3>
-                            <p class="text-xl text-[#7F8C8D]">"Extension 20% off" pour les fans</p>
-                        </div>
-                    </div>
-
-                    <div class="flex items-center gap-6 p-8 bg-white rounded-3xl border border-[#F4A582]/10 shadow-lg shadow-[#F4A582]/5 hover:border-[#F4A582]/30 transition-colors">
-                        <div class="text-6xl shrink-0">📊</div>
-                        <div>
-                            <h3 class="text-2xl font-semibold text-[#2C3E50] mb-2">Voir qui revient / disparaît</h3>
-                            <p class="text-xl text-[#7F8C8D]">Agir avant qu'elle ne parte</p>
-                        </div>
-                    </div>
-
-                    <div class="flex items-center gap-6 p-8 bg-white rounded-3xl border border-[#F4A582]/10 shadow-lg shadow-[#F4A582]/5 hover:border-[#F4A582]/30 transition-colors">
-                        <div class="text-6xl shrink-0">🎯</div>
-                        <div>
-                            <h3 class="text-2xl font-semibold text-[#2C3E50] mb-2">Messages perso</h3>
-                            <p class="text-xl text-[#7F8C8D]">Augmente le taux de réactivation</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="text-center">
-                    <p class="text-2xl md:text-3xl font-bold text-[#F4A582] bg-[#FFF5F0] inline-block px-10 py-5 rounded-full border border-[#F4A582]/20 shadow-sm">
-                        Vous parlez à vos clientes, pas à des numéros.
-                    </p>
-                </div>
-            </div>
-        </section>
-
-        <!-- SLIDE 5: Ce que tu contrôles -->
-        <section class="slide" data-index="5">
-            <div class="max-w-5xl w-full px-4">
-                <div class="text-center mb-16">
-                    <h2 class="text-5xl font-bold text-[#2C3E50] mb-4 font-heading">
-                        Ce que tu contrôles
-                    </h2>
-                    <div class="h-1.5 w-32 bg-[#F4A582] mx-auto rounded-full"></div>
-                </div>
-
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-x-16 gap-y-8">
-                    <!-- Items -->
-                    <div class="flex items-center gap-4 p-4 rounded-xl bg-white shadow-sm border border-gray-100 hover:border-[#F4A582]/30 transition-colors">
-                        <div class="w-8 h-8 rounded-full bg-[#E0F2F1] text-[#4CAF50] flex items-center justify-center shrink-0">
-                            <i data-lucide="check" class="w-5 h-5"></i>
-                        </div>
-                        <span class="text-xl text-[#2C3E50]">QR code scannable au comptoir</span>
-                    </div>
-
-                    <div class="flex items-center gap-4 p-4 rounded-xl bg-white shadow-sm border border-gray-100 hover:border-[#F4A582]/30 transition-colors">
-                        <div class="w-8 h-8 rounded-full bg-[#E0F2F1] text-[#4CAF50] flex items-center justify-center shrink-0">
-                            <i data-lucide="check" class="w-5 h-5"></i>
-                        </div>
-                        <span class="text-xl text-[#2C3E50]">Récompenses que <span class="text-[#F4A582] font-semibold">TU</span> choisis</span>
-                    </div>
-
-                    <div class="flex items-center gap-4 p-4 rounded-xl bg-white shadow-sm border border-gray-100 hover:border-[#F4A582]/30 transition-colors">
-                        <div class="w-8 h-8 rounded-full bg-[#E0F2F1] text-[#4CAF50] flex items-center justify-center shrink-0">
-                            <i data-lucide="check" class="w-5 h-5"></i>
-                        </div>
-                        <span class="text-xl text-[#2C3E50]">Inscription cliente en 15 secondes</span>
-                    </div>
-
-                    <div class="flex items-center gap-4 p-4 rounded-xl bg-white shadow-sm border border-gray-100 hover:border-[#F4A582]/30 transition-colors">
-                        <div class="w-8 h-8 rounded-full bg-[#E0F2F1] text-[#4CAF50] flex items-center justify-center shrink-0">
-                            <i data-lucide="check" class="w-5 h-5"></i>
-                        </div>
-                        <span class="text-xl text-[#2C3E50]">Dashboard avec tous les clients et stats</span>
-                    </div>
-
-                    <div class="flex items-center gap-4 p-4 rounded-xl bg-white shadow-sm border border-gray-100 hover:border-[#F4A582]/30 transition-colors">
-                        <div class="w-8 h-8 rounded-full bg-[#E0F2F1] text-[#4CAF50] flex items-center justify-center shrink-0">
-                            <i data-lucide="check" class="w-5 h-5"></i>
-                        </div>
-                        <span class="text-xl text-[#2C3E50]">Points automatiques à chaque visite</span>
-                    </div>
-
-                    <div class="flex items-center gap-4 p-4 rounded-xl bg-white shadow-sm border border-gray-100 hover:border-[#F4A582]/30 transition-colors">
-                        <div class="w-8 h-8 rounded-full bg-[#E0F2F1] text-[#4CAF50] flex items-center justify-center shrink-0">
-                            <i data-lucide="check" class="w-5 h-5"></i>
-                        </div>
-                        <span class="text-xl text-[#2C3E50]">Notifications automatiques</span>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- SLIDE 6: Les Maths Simples -->
-        <section class="slide" data-index="6">
-            <div class="max-w-4xl w-full px-4">
-                <h2 class="text-5xl font-bold text-[#2C3E50] text-center mb-12 font-heading">
-                    Les Maths Simples
-                </h2>
-
-                <div class="bg-[#FFF5F0] rounded-[2.5rem] p-12 border-l-8 border-[#F4A582] shadow-xl shadow-[#F4A582]/10 relative overflow-hidden">
-                    <div class="absolute right-0 top-0 w-64 h-full bg-white opacity-40 skew-x-12"></div>
-                    
-                    <div class="relative z-10 space-y-8">
-                        <div class="flex justify-between items-center text-xl md:text-2xl border-b border-[#F4A582]/20 pb-4">
-                            <span class="text-[#7F8C8D]">Coût: Mon Salon Fidèle</span>
-                            <span class="font-semibold text-[#2C3E50]">49€/mois</span>
-                        </div>
-                        
-                        <div class="flex justify-between items-center text-xl md:text-2xl border-b border-[#F4A582]/20 pb-4">
-                            <span class="text-[#7F8C8D]">Besoin de réactiver</span>
-                            <span class="font-bold text-[#F4A582]">1 cliente seulement</span>
-                        </div>
-
-                        <div class="flex justify-between items-center text-xl md:text-2xl pb-4">
-                            <span class="text-[#7F8C8D]">1 cliente × 50€ visite =</span>
-                            <span class="font-semibold text-[#2C3E50]">50€ récupérés</span>
-                        </div>
-
-                        <!-- Divider line -->
-                        <div class="w-full h-px bg-[#F4A582] opacity-50 my-6"></div>
-
-                        <!-- Gain -->
-                        <div class="flex justify-between items-center">
-                            <span class="text-2xl font-medium text-[#2C3E50]">Gain net / mois</span>
-                            <span class="text-5xl md:text-6xl font-bold text-[#4CAF50] font-heading">200€ → 500€+</span>
-                        </div>
-                    </div>
-                </div>
-
-                <p class="text-center text-[#7F8C8D] mt-10 text-xl italic">
-                    "Et ça c'est conservateur. Beaucoup de salons voient le double."
-                </p>
-            </div>
-        </section>
-
-        <!-- SLIDE 7: 30 jours gratuits -->
-        <section class="slide" data-index="7">
-            <div class="max-w-4xl w-full text-center px-4">
-                <div class="bg-white rounded-[3rem] p-16 shadow-2xl shadow-[#F4A582]/20 border border-[#F4A582]/10">
-                    <h2 class="text-6xl md:text-7xl font-bold text-[#F4A582] mb-6 font-heading">
-                        30 jours gratuits
-                    </h2>
-                    <p class="text-3xl text-[#2C3E50] font-semibold mb-10">
-                        Zéro engagement. Pas de CB maintenant.
-                    </p>
-                    
-                    <p class="text-xl text-[#7F8C8D] mb-14 max-w-2xl mx-auto leading-relaxed">
-                        Essaie. Vois les résultats. Après 30 jours tu décides.<br>
-                        Si ça marche pas? Tu arrêtes. C'est fini. Aucun truc louche.
-                    </p>
-
-                    <div class="flex flex-col md:flex-row gap-8 justify-center items-center">
-                        <button class="px-10 py-5 bg-[#F4A582] text-white rounded-full font-semibold text-xl shadow-lg shadow-[#F4A582]/40 hover:bg-[#E8956E] hover:scale-105 transition-all duration-300 w-full md:w-auto">
-                            Je veux essayer
-                        </button>
-                        
-                        <button class="px-10 py-5 bg-transparent border-2 border-[#E5E7EB] text-[#7F8C8D] rounded-full font-medium text-xl hover:border-[#F4A582] hover:text-[#F4A582] transition-colors duration-300 w-full md:w-auto">
-                            Une question d'abord
-                        </button>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-    </main>
-
-    <!-- Navigation Controls -->
-    <div class="fixed bottom-8 left-0 right-0 z-50 px-8 flex justify-between items-center pointer-events-none">
-        
-        <!-- Counter -->
-        <div class="text-[#7F8C8D] font-medium text-lg pointer-events-auto bg-white/80 backdrop-blur px-4 py-2 rounded-full border border-gray-200">
-            <span id="slide-current">1</span> / <span id="slide-total">7</span>
-        </div>
-
-        <!-- Buttons -->
-        <div class="flex gap-4 pointer-events-auto">
-            <button onclick="prevSlide()" id="btn-prev" class="w-14 h-14 rounded-full bg-white text-[#2C3E50] border border-gray-200 flex items-center justify-center shadow-lg hover:border-[#F4A582] hover:text-[#F4A582] transition-all disabled:opacity-30 disabled:cursor-not-allowed">
-                <i data-lucide="arrow-left" class="w-6 h-6"></i>
-            </button>
-            <button onclick="nextSlide()" id="btn-next" class="w-14 h-14 rounded-full bg-[#F4A582] text-white flex items-center justify-center shadow-lg shadow-[#F4A582]/40 hover:bg-[#E8956E] hover:scale-105 transition-all disabled:opacity-30 disabled:cursor-not-allowed">
-                <i data-lucide="arrow-right" class="w-6 h-6"></i>
-            </button>
-        </div>
+  <!-- ══ 1 – Intro ══ -->
+  <div class="slide active">
+    <div class="slide-inner">
+      <div class="eyebrow"><span class="ew-dot"></span>Présentation</div>
+      <h1>Garder vos clientes<br><em>plus longtemps.</em></h1>
+      <p class="subtitle">Démo pour <strong style="color:var(--night)">[Nom du salon]</strong></p>
+      <div class="bullets">
+        <div class="bullet"><div class="bi bi-r">✂️</div><span>Ma sœur est coiffeuse. Elle utilisait des cartes papier et n'avait pas le temps de suivre les clientes qui ne revenaient plus.</span></div>
+        <div class="bullet"><div class="bi bi-o">💻</div><span>Je travaille dans la tech — j'ai voulu l'aider à mieux garder ses clientes, sans y passer des heures.</span></div>
+        <div class="bullet"><div class="bi bi-n">💡</div><span>C'est comme ça qu'est né <strong>Mon Salon Fidèle</strong>.</span></div>
+      </div>
     </div>
+  </div>
 
-    <script>
-        // Initialize Icons
-        lucide.createIcons();
+  <!-- ══ 2 – Problème ══ -->
+  <div class="slide bg-alt">
+    <div class="slide-inner">
+      <div class="eyebrow"><span class="ew-dot"></span>Le constat</div>
+      <h1>Le vrai problème<br><span class="ao">aujourd'hui</span></h1>
+      <div class="bullets">
+        <div class="bullet"><div class="bi bi-r">👻</div><span>Vous ne voyez pas facilement quelles clientes ont disparu depuis plusieurs mois — elles partent en silence.</span></div>
+        <div class="bullet"><div class="bi bi-o">📅</div><span>Planity vous aide à remplir l'agenda, mais pas à faire revenir celles qui ne reviennent plus.</span></div>
+        <div class="bullet"><div class="bi bi-n">⏱️</div><span>Vous n'avez pas le temps de relancer manuellement chaque cliente — et c'est tout à fait normal.</span></div>
+      </div>
+    </div>
+  </div>
 
-        // Slide Logic
-        const slides = document.querySelectorAll('.slide');
-        const totalSlides = slides.length;
-        let currentSlideIndex = 0;
+  <!-- ══ 3 – Questions ══ -->
+  <div class="slide">
+    <div class="slide-inner">
+      <div class="eyebrow"><span class="ew-dot"></span>Échange</div>
+      <h1>On fait le point<br>sur <em>votre salon</em></h1>
+      <p class="subtitle" style="margin-bottom:24px">Trois points à explorer ensemble :</p>
+      <div class="cards-row">
+        <div class="card ct-r">
+          <div class="card-emoji">🔍</div>
+          <div class="card-label">Visibilité</div>
+          <div class="card-q">Comment voyez-vous aujourd'hui les clientes qui ne reviennent plus ?</div>
+        </div>
+        <div class="card ct-o">
+          <div class="card-emoji">📨</div>
+          <div class="card-label">Relance</div>
+          <div class="card-q">Envoyez-vous déjà des messages pour faire revenir vos clientes ?</div>
+        </div>
+        <div class="card ct-n">
+          <div class="card-emoji">⚡</div>
+          <div class="card-label">Planity</div>
+          <div class="card-q">Qu'est-ce que Planity fait bien — et qu'est-ce qui manque ?</div>
+        </div>
+      </div>
+    </div>
+  </div>
 
-        const elCurrent = document.getElementById('slide-current');
-        const elTotal = document.getElementById('slide-total');
-        const btnPrev = document.getElementById('btn-prev');
-        const btnNext = document.getElementById('btn-next');
+  <!-- ══ 4 – Parcours ══ -->
+  <div class="slide bg-alt">
+    <div class="slide-inner">
+      <div class="eyebrow"><span class="ew-dot"></span>Parcours cliente</div>
+      <h1>Du <em>scan</em> au<br>programme de fidélité</h1>
+      <div class="timeline">
+        <div class="tl-row">
+          <div class="tl-left"><div class="tl-num">1</div><div class="tl-line"></div></div>
+          <div class="tl-content">
+            <div class="tl-title">📱 Scan du QR code en salon</div>
+            <div class="tl-desc">La cliente scanne le QR code affiché à l'accueil ou au miroir.</div>
+          </div>
+        </div>
+        <div class="tl-row">
+          <div class="tl-left"><div class="tl-num">2</div><div class="tl-line"></div></div>
+          <div class="tl-content">
+            <div class="tl-title">🎁 Page "Rejoindre le programme"</div>
+            <div class="tl-desc">Elle voit les points gagnés à chaque visite et les récompenses disponibles.</div>
+          </div>
+        </div>
+        <div class="tl-row">
+          <div class="tl-left"><div class="tl-num">3</div><div class="tl-line"></div></div>
+          <div class="tl-content">
+            <div class="tl-title">✉️ Elle saisit son email</div>
+            <div class="tl-forks">
+              <div class="tl-fork"><strong>Déjà inscrite →</strong>Redirection vers son tableau de bord personnel.</div>
+              <div class="tl-fork"><strong>Nouvelle cliente →</strong>Formulaire : prénom, email, téléphone…</div>
+            </div>
+          </div>
+        </div>
+        <div class="tl-row">
+          <div class="tl-left"><div class="tl-num">4</div></div>
+          <div class="tl-content">
+            <div class="tl-title">⭐ Son tableau de bord</div>
+            <div class="tl-desc">Elle voit ses points, ses prochaines récompenses et l'historique de ses visites.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 
-        elTotal.innerText = totalSlides;
+  <!-- ══ 5 – Dashboard salon ══ -->
+  <div class="slide">
+    <div class="slide-inner">
+      <div class="eyebrow"><span class="ew-dot"></span>Côté salon</div>
+      <h1>Votre <em>tableau de bord</em></h1>
+      <div class="cards-row">
+        <div class="card ct-r">
+          <div class="card-emoji">👤</div>
+          <div class="card-label">Clients</div>
+          <div class="card-text">Liste complète avec points, statut <span class="card-hl">Actif / Inactif</span> et spécialités. Filtrez par date de dernière visite.</div>
+        </div>
+        <div class="card ct-o">
+          <div class="card-emoji">🏆</div>
+          <div class="card-label">Récompenses</div>
+          <div class="card-text">Consultez les récompenses demandées, validez-les en un clic et accédez à l'historique complet.</div>
+        </div>
+        <div class="card ct-n" style="display:flex;flex-direction:column">
+          <div class="card-emoji">💬</div>
+          <div class="card-label">Messages</div>
+          <div class="card-text">SMS et emails de relance envoyés automatiquement.</div>
+          <div class="sms-wrap">
+            <div class="sms-tag">Exemple SMS</div>
+            <div class="sms-bubble">Bonjour Sophie 👋 Cela fait 2 mois qu'on ne vous a pas vue ! Revenez profiter d'un soin offert dès votre prochaine visite. À très bientôt 💕 – Salon Lumière</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 
-        function updateUI() {
-            // Update slides
-            slides.forEach((slide, index) => {
-                if(index === currentSlideIndex) {
-                    slide.classList.add('active');
-                } else {
-                    slide.classList.remove('active');
-                }
-            });
+  <!-- ══ 6 – Offre ══ -->
+  <div class="slide bg-alt">
+    <div class="slide-inner">
+      <div class="eyebrow"><span class="ew-dot"></span>Offre</div>
+      <h1>On fait comment si<br><em>ça vous parle ?</em></h1>
+      <div class="price-row">
+        <span class="price-amount">49 €</span>
+        <span class="price-period">/ mois</span>
+      </div>
+      <div class="cta-list">
+        <div class="cta-item"><span class="cta-dot"></span><span>2 à 3 clientes qui reviennent grâce aux messages suffisent à rentabiliser l'abonnement.</span></div>
+        <div class="cta-item"><span class="cta-dot o"></span><span>On teste pendant <strong>3 mois, sans obligation de continuer</strong> — vous résiliez quand vous voulez.</span></div>
+        <div class="cta-item"><span class="cta-dot"></span><span>Configuration complète incluse, on vous accompagne pas à pas.</span></div>
+      </div>
+      <button class="btn-cta">✨ On crée votre compte maintenant — 5 minutes chrono</button>
+    </div>
+  </div>
 
-            // Update Counter
-            elCurrent.innerText = currentSlideIndex + 1;
+</div>
 
-            // Update Buttons
-            btnPrev.disabled = currentSlideIndex === 0;
-            btnNext.disabled = currentSlideIndex === totalSlides - 1;
-            
-            lucide.createIcons();
-        }
+<!-- Navigation -->
+<div id="nav">
+  <button class="nav-btn" id="btn-prev" disabled>← Précédent</button>
+  <div id="dots"></div>
+  <button class="nav-btn" id="btn-next">Suivant →</button>
+</div>
 
-        function nextSlide() {
-            if (currentSlideIndex < totalSlides - 1) {
-                currentSlideIndex++;
-                updateUI();
-            }
-        }
+<script>
+  const slides  = document.querySelectorAll('.slide');
+  const dotsEl  = document.getElementById('dots');
+  const btnPrev = document.getElementById('btn-prev');
+  const btnNext = document.getElementById('btn-next');
+  const curN    = document.getElementById('cur-n');
+  let   current = 0;
 
-        function prevSlide() {
-            if (currentSlideIndex > 0) {
-                currentSlideIndex--;
-                updateUI();
-            }
-        }
+  slides.forEach((_, i) => {
+    const d = document.createElement('div');
+    d.className = 'dot' + (i === 0 ? ' active' : '');
+    d.addEventListener('click', () => goTo(i));
+    dotsEl.appendChild(d);
+  });
 
-        // Keyboard Navigation
-        document.addEventListener('keydown', (e) => {
-            if (e.key === 'ArrowRight' || e.key === ' ') {
-                nextSlide();
-            } else if (e.key === 'ArrowLeft') {
-                prevSlide();
-            }
-        });
+  function goTo(n, dir = 1) {
+    if (n < 0 || n >= slides.length || n === current) return;
+    const prev = current;
+    slides[prev].classList.remove('active');
+    slides[prev].classList.add(dir >= 0 ? 'exit-left' : 'exit-right');
+    setTimeout(() => slides[prev].classList.remove('exit-left', 'exit-right'), 510);
+    current = n;
+    slides[current].classList.add('active');
+    dotsEl.querySelectorAll('.dot').forEach((d, i) => d.classList.toggle('active', i === current));
+    curN.textContent = current + 1;
+    btnPrev.disabled = current === 0;
+    btnNext.disabled = current === slides.length - 1;
+  }
 
-        // Initial load
-        updateUI();
-    </script>
+  btnPrev.addEventListener('click', () => goTo(current - 1, -1));
+  btnNext.addEventListener('click', () => goTo(current + 1,  1));
+  document.addEventListener('keydown', e => {
+    if (e.key === 'ArrowLeft')  goTo(current - 1, -1);
+    if (e.key === 'ArrowRight') goTo(current + 1,  1);
+  });
+</script>
 </body>
 </html>
