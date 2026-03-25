@@ -237,7 +237,7 @@ h1 .ao { font-style: italic; color: var(--orange); }
 .btn-cta {
   display: inline-flex; align-items: center; gap: 10px;
   background: linear-gradient(90deg, var(--rose) 0%, var(--orange) 100%);
-  color: #fff;
+  color: #fff; text-decoration: none;
   font-family: 'DM Sans', sans-serif; font-weight: 600;
   font-size: 0.98rem;
   border: none; border-radius: 50px; padding: 16px 34px;
@@ -281,13 +281,50 @@ h1 .ao { font-style: italic; color: var(--orange); }
   .cards-row, .tl-forks { flex-direction: column; }
   h1 { font-size: 1.85rem; }
 }
+
+/* ───── Slide 7 specifics ───── */
+.badge-green {
+  display: inline-block; padding: 4px 12px;
+  background: #dcfce7; color: #15803d;
+  font-size: 0.72rem; font-weight: 700;
+  letter-spacing: 0.08em; text-transform: uppercase;
+  border-radius: 50px;
+}
+.badge-pro {
+  display: inline-block; padding: 4px 12px;
+  background: linear-gradient(90deg, var(--rose), var(--orange));
+  color: #fff;
+  font-size: 0.7rem; font-weight: 700;
+  letter-spacing: 0.06em; text-transform: uppercase;
+  border-radius: 50px;
+  white-space: nowrap;
+}
+.feat-list { display: flex; flex-direction: column; gap: 10px; }
+.feat-item {
+  font-size: 0.91rem; line-height: 1.5;
+  padding: 9px 12px; border-radius: 10px;
+}
+.feat-ok     { background: #f0fdf4; color: #166534; }
+.feat-limit  { background: #fffbeb; color: #92400e; }
+.feat-no     { background: #fff1f2; color: #be123c; }
+.btn-outline-rose {
+  display: inline-flex; align-items: center;
+  border: 1.5px solid var(--rose); color: var(--rose);
+  background: transparent;
+  font-family: 'DM Sans', sans-serif; font-weight: 600;
+  font-size: 0.9rem; border-radius: 50px;
+  padding: 10px 22px; cursor: pointer;
+  text-decoration: none;
+  transition: background 0.2s, color 0.2s;
+}
+.btn-outline-rose:hover { background: var(--rose-light); }
 </style>
 </head>
 <body>
 
 <div id="topbar">
   <div class="logo"><div class="logo-dot"></div>Mon Salon Fidèle</div>
-  <div id="slide-counter">Slide <strong id="cur-n">1</strong> / 6</div>
+  <div id="slide-counter">Slide <strong id="cur-n">1</strong> / 7</div>
 </div>
 
 <div id="deck">
@@ -297,7 +334,7 @@ h1 .ao { font-style: italic; color: var(--orange); }
     <div class="slide-inner">
       <div class="eyebrow"><span class="ew-dot"></span>Présentation</div>
       <h1>Garder vos clientes<br><em>plus longtemps.</em></h1>
-      <p class="subtitle">Démo pour <strong style="color:var(--night)">[Nom du salon]</strong></p>
+      <p class="subtitle">Démo pour <strong style="color:var(--night)">la maison bleue – ben thomy coiffure lmb</strong></p>
       <div class="bullets">
         <div class="bullet"><div class="bi bi-r">✂️</div><span>Ma sœur est coiffeuse. Elle utilisait des cartes papier et n'avait pas le temps de suivre les clientes qui ne revenaient plus.</span></div>
         <div class="bullet"><div class="bi bi-o">💻</div><span>Je travaille dans la tech — j'ai voulu l'aider à mieux garder ses clientes, sans y passer des heures.</span></div>
@@ -425,17 +462,58 @@ h1 .ao { font-style: italic; color: var(--orange); }
         <span class="price-period">/ mois</span>
       </div>
       <div class="cta-list">
-        <div class="cta-item"><span class="cta-dot"></span><span>2 à 3 clientes qui reviennent grâce aux messages suffisent à rentabiliser l'abonnement.</span></div>
-        <div class="cta-item"><span class="cta-dot o"></span><span>On teste pendant <strong>3 mois, sans obligation de continuer</strong> — vous résiliez quand vous voulez.</span></div>
-        <div class="cta-item"><span class="cta-dot"></span><span>Configuration complète incluse, on vous accompagne pas à pas.</span></div>
+        <div class="cta-item"><span class="cta-dot"></span><span>Clients illimités</span></div>
+        <div class="cta-item"><span class="cta-dot o"></span><span>Messages de relance automatiques (Email, SMS, WhatsApp)</span></div>
+        <div class="cta-item"><span class="cta-dot"></span><span>Support inclus, configuration guidée</span></div>
       </div>
-      <button class="btn-cta">✨ On crée votre compte maintenant — 5 minutes chrono</button>
+      <p style="font-size:0.97rem;color:var(--muted);font-style:italic;margin-bottom:28px;">2–3 clientes qui reviennent suffisent à rentabiliser.</p>
+      <a href="https://buy.stripe.com/cNifZhd9k5nu1Ak0PifYY00" target="_blank" class="btn-cta">Démarrer le plan Pro →</a>
+    </div>
+  </div>
+
+  <!-- ══ 7 – Carte de secours : plan gratuit vs Pro ══ -->
+  <div class="slide">
+    <div class="slide-inner">
+      <div class="eyebrow"><span class="ew-dot"></span>Si vous préférez tester d'abord</div>
+      <h1>Une option <em>sans risque.</em></h1>
+      <div class="cards-row" style="margin-top:8px;">
+
+        <!-- Bloc gauche : Gratuit -->
+        <div class="card ct-green" style="border-top:3px solid #22c55e;">
+          <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:16px;">
+            <span style="font-family:'Playfair Display',serif;font-weight:900;font-size:1.1rem;color:var(--night)">Ce que vous avez</span>
+            <span class="badge-green">Gratuit</span>
+          </div>
+          <div class="feat-list">
+            <div class="feat-item feat-ok">✅ Accès à la plateforme</div>
+            <div class="feat-item feat-ok">✅ QR code + dashboard + programme de fidélité</div>
+            <div class="feat-item feat-limit">⚠️ Limité à <strong>30 clients</strong> maximum</div>
+          </div>
+          <a href="#" class="btn-outline-rose" style="margin-top:20px;display:inline-block;">Commencer gratuitement</a>
+        </div>
+
+        <!-- Bloc droit : Sans Pro -->
+        <div class="card" style="border-top:3px solid var(--rose);">
+          <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:16px;">
+            <span style="font-family:'Playfair Display',serif;font-weight:900;font-size:1.1rem;color:var(--night)">Sans le Plan Pro</span>
+            <span class="badge-pro">Plan Pro – 49 €/mois</span>
+          </div>
+          <div class="feat-list">
+            <div class="feat-item feat-no">❌ Pas de messages automatiques de relance</div>
+            <div class="feat-item feat-no">❌ Pas de campagnes Email / SMS / WhatsApp</div>
+            <div class="feat-item feat-no">❌ Pas de segments intelligents</div>
+          </div>
+          <a href="https://buy.stripe.com/cNifZhd9k5nu1Ak0PifYY00" target="_blank" class="btn-cta" style="margin-top:20px;display:inline-flex;text-decoration:none;">Passer au Plan Pro →</a>
+        </div>
+
+      </div>
+      <p style="text-align:center;margin-top:28px;font-size:0.9rem;color:var(--muted);font-style:italic;line-height:1.6;">
+        L'offre gratuite vous permet de voir le produit. Le Plan Pro vous permet de garder vos clientes.
+      </p>
     </div>
   </div>
 
 </div>
-
-<!-- Navigation -->
 <div id="nav">
   <button class="nav-btn" id="btn-prev" disabled>← Précédent</button>
   <div id="dots"></div>
